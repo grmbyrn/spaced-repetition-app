@@ -1,0 +1,67 @@
+{
+  "language": "rust",
+  "title": "Rust Fundamentals",
+  "chapters": [
+    {
+      "id": "ownership",
+      "title": "Ownership and Borrowing",
+      "questions": [
+        {
+          "id": "q1",
+          "questionText": "What is the main purpose of Rust's ownership system?",
+          "options": [
+            "To improve performance",
+            "To prevent data races and ensure memory safety",
+            "To simplify syntax",
+            "To enable dynamic typing"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "id": "q2",
+          "questionText": "Which keyword is used to borrow a value immutably in Rust?",
+          "options": [
+            "mut",
+            "&",
+            "let",
+            "ref"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "id": "q3",
+          "questionText": "What happens when ownership of a variable is moved?",
+          "options": [
+            "The original variable can still be used",
+            "The original variable becomes invalid",
+            "Both variables can be used",
+            "The value is copied"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "id": "q4",
+          "questionText": "Which of the following allows multiple references to a value?",
+          "options": [
+            "Mutable borrow",
+            "Immutable borrow",
+            "Ownership transfer",
+            "Copy trait"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "id": "q5",
+          "questionText": "Which error occurs if you try to use a value after its ownership has moved?",
+          "options": [
+            "Borrow checker error",
+            "Lifetime error",
+            "Use after move error",
+            "Type mismatch error"
+          ],
+          "correctIndex": 2
+        }
+      ]
+    }
+  ]
+}
