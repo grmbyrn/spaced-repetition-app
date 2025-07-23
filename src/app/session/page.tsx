@@ -58,28 +58,36 @@ export default function SessionPage() {
             <div className="mb-4">{q.questionText}</div>
             <ul className="list-none pl-0">
               {q.options.map((opt, i) => {
-                let liStyle = "mb-2 flex items-center";
-                if (answered) {
-                  if (i === q.correctIndex) {
-                    liStyle += " bg-green-300"; // Highlight correct answer
-                  } else if (selected === i && i !== q.correctIndex) {
-                    liStyle += " bg-red-300"; // Highlight user's incorrect choice
-                  }
-                }
-                const optionLabel = String.fromCharCode(65 + i); // A, B, C, D
-                return (
-                  <li key={i} className={liStyle}>
-                    <span className="font-bold mr-2">{optionLabel}.</span>
-                    <button
-                      className="border px-2 py-1 rounded w-full text-left"
-                      disabled={answered}
-                      onClick={() => handleAnswer(i)}
-                    >
-                      {opt}
-                    </button>
-                  </li>
-                );
-              })}
+  const isCorrect = i === q.correctIndex;
+  const isSelected = selected === i;
+
+  // Default button style
+  let buttonStyle = "border px-2 py-1 rounded w-full text-left";
+
+  // Add color if answered
+  if (answered) {
+    if (isCorrect) {
+      buttonStyle += " bg-green-300";
+    } else if (isSelected && !isCorrect) {
+      buttonStyle += " bg-red-300";
+    }
+  }
+
+  return (
+    <li key={i} className="mb-2 flex items-center">
+      <span className="font-bold mr-2">
+        {String.fromCharCode(65 + i)}.
+      </span>
+      <button
+        className={buttonStyle}
+        disabled={answered}
+        onClick={() => handleAnswer(i)}
+      >
+        {opt}
+      </button>
+    </li>
+  );
+})}
             </ul>
             {answered && (
               <>

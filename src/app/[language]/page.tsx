@@ -25,9 +25,11 @@ const languageData: Record<string, LanguageData> = {
   svelte: svelteData,
 };
 
-export default function LanguagePage({ params }: { params: { language: string } }) {
+export default function LanguagePage(props: { params: { language: string } }) {
+  const { params } = props;
   const language = params.language;
   const data = languageData[language];
+
   if (!data) return <div className="p-8 text-red-600 font-bold">Language not found.</div>;
 
   return (
