@@ -12,20 +12,6 @@ const languageData: Record<string, typeof rustData> = {
   svelte: svelteData,
 };
 
-type Chapter = {
-  id: string;
-  title: string;
-  questions: Question[];
-};
-
-type Question = {
-  id: string;
-  questionText: string;
-  options: string[];
-  correctIndex: number;
-  explanation?: string;
-};
-
 export default function SessionPage() {
   const { session, startSession, nextQuestion, answerQuestion, resetSession } = useQuizStore();
   const [selected, setSelected] = useState<number | null>(null);
@@ -106,12 +92,21 @@ export default function SessionPage() {
                 <div className="mt-4 p-3 bg-yellow-50 border rounded text-gray-800">
                   <strong>Explanation:</strong> {q.explanation}
                 </div>
-                <button
-                  className="mt-4 px-4 py-2 bg-blue-600 text-white rounded"
-                  onClick={handleNext}
-                >
-                  Next Question
-                </button>
+                {session.currentIndex === session.questions.length - 1 ? (
+                  <Link
+                    href="/result"
+                    className="mt-4 px-4 py-2 bg-blue-600 text-white rounded inline-block text-center"
+                  >
+                    See Results
+                  </Link>
+                ) : (
+                  <button
+                    className="mt-4 px-4 py-2 bg-blue-600 text-white rounded"
+                    onClick={handleNext}
+                  >
+                    Next Question
+                  </button>
+                )}
               </>
             )}
           </>

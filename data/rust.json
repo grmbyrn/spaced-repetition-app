@@ -1,70 +1,70 @@
 {
   "language": "rust",
-  "title": "Rust Fundamentals",
+  "title": "Rust",
   "chapters": [
     {
-      "id": "ownership",
-      "title": "Ownership and Borrowing",
+      "id": "installation",
+      "title": "Rust Installation, Hello World, Hello Cargo",
       "questions": [
         {
           "id": "q1",
-          "questionText": "What is the main purpose of Rust's ownership system?",
+          "questionText": "What kind of programming language is Rust?",
           "options": [
-            "To improve performance",
-            "To prevent data races and ensure memory safety",
-            "To simplify syntax",
-            "To enable dynamic typing"
+            "Interpreted, dynamically typed",
+            "Compiled, statically typed",
+            "Interpreted, statically typed",
+            "Compiled, dynamically typed"
           ],
           "correctIndex": 1,
-          "explanation": "Rust's ownership system is designed to prevent data races and ensure memory safety without needing a garbage collector."
+          "explanation": "Rust is a compiled language (using rustc) and uses static typing, which helps catch many errors at compile time."
         },
         {
           "id": "q2",
-          "questionText": "Which keyword is used to borrow a value immutably in Rust?",
+          "questionText": "What is the main advantage of using Cargo over manually using rustc?",
           "options": [
-            "mut",
-            "let",
-            "&",
-            "ref"
+            "Cargo can only run unit tests",
+            "Cargo creates executables for Python",
+            "Cargo simplifies project structure and builds",
+            "Cargo allows editing source code in a browser"
           ],
           "correctIndex": 2,
-          "explanation": "The '&' symbol is used for immutable borrowing in Rust, allowing read-only access to a value."
+          "explanation": "Cargo is Rust’s package manager and build tool, streamlining compilation, dependencies, and project setup."
         },
         {
           "id": "q3",
-          "questionText": "What happens when ownership of a variable is moved?",
+          "questionText": "What does the exclamation mark in println! indicate in Rust?",
           "options": [
-            "The value is copied",
-            "The original variable becomes invalid",
-            "Both variables can be used",
-            "The original variable can still be used"
+            "It is a syntax error",
+            "It denotes a macro, not a regular function",
+            "It marks the function as unsafe",
+            "It is optional and can be removed"
           ],
           "correctIndex": 1,
-          "explanation": "After ownership is moved, the original variable becomes invalid and cannot be used."
+          "explanation": "In Rust, macros like println! use ! to distinguish them from regular functions."
         },
         {
           "id": "q4",
-          "questionText": "Which of the following allows multiple references to a value?",
+          "questionText": "What is the function of the cargo check command?",
           "options": [
-            "Ownership transfer",
-            "Mutable borrow",
-            "Copy trait",
-            "Immutable borrow"
+            "Compiles and runs the program",
+            "Checks syntax and logic but doesn’t compile",
+            "Checks for compilation errors without generating executable",
+            "Updates all dependencies"
           ],
-          "correctIndex": 3,
-          "explanation": "Immutable borrows allow multiple references to a value at the same time, while mutable borrows are exclusive."
+          "correctIndex": 2,
+          "explanation": "cargo check is used for fast syntax and type-checking, without building the binary."
         },
         {
           "id": "q5",
-          "questionText": "Which error occurs if you try to use a value after its ownership has moved?",
+          "questionText": "What is the significance of cargo build --release?",
           "options": [
-            "Type mismatch error",
-            "Borrow checker error",
-            "Lifetime error",
-            "Use after move error"
+            "It builds the debug version of the app",
+            "It builds a slower, more verbose version of the binary",
+            "It creates an optimized, production-ready binary",
+            "It updates all dependencies and compiles"
           ],
-          "correctIndex": 3,
-          "explanation": "A 'use after move' error occurs when you try to use a value after its ownership has been transferred."
+          "correctIndex": 2,
+          "explanation": "--release enables compiler optimizations, producing faster and smaller binaries for production use."
         }
       ]
     },

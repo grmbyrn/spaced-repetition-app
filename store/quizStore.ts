@@ -6,7 +6,7 @@ type Question = {
   questionText: string;
   options: string[];
   correctIndex: number;
-  explanation?: string; // <-- Add this line
+  explanation?: string;
 };
 
 type ReviewState = {
