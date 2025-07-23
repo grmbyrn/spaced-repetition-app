@@ -1,0 +1,138 @@
+{
+  "language": "svelte",
+  "title": "Svelte Fundamentals",
+  "chapters": [
+    {
+      "id": "basics",
+      "title": "Svelte Basics",
+      "questions": [
+        {
+          "id": "s1",
+          "questionText": "What is Svelte?",
+          "options": [
+            "A CSS framework",
+            "A JavaScript runtime",
+            "A front-end compiler",
+            "A backend server"
+          ],
+          "correctIndex": 2,
+          "explanation": "Svelte is a front-end compiler that converts declarative components into efficient JavaScript code."
+        },
+        {
+          "id": "s2",
+          "questionText": "Which file extension is used for Svelte components?",
+          "options": [
+            ".jsx",
+            ".svelte",
+            ".vue",
+            ".ts"
+          ],
+          "correctIndex": 1,
+          "explanation": "Svelte components use the .svelte file extension."
+        },
+        {
+          "id": "s3",
+          "questionText": "How do you declare a reactive variable in Svelte?",
+          "options": [
+            "Using $: before the statement",
+            "Using useState()",
+            "Using let keyword",
+            "Using @reactive decorator"
+          ],
+          "correctIndex": 0,
+          "explanation": "Reactive statements in Svelte start with $: before the assignment."
+        },
+        {
+          "id": "s4",
+          "questionText": "Which directive is used for conditional rendering in Svelte?",
+          "options": [
+            "{#if}",
+            "{#each}",
+            "{#await}",
+            "{#show}"
+          ],
+          "correctIndex": 0,
+          "explanation": "The {#if} directive is used for conditional rendering in Svelte."
+        },
+        {
+          "id": "s5",
+          "questionText": "How do you bind an input value to a variable in Svelte?",
+          "options": [
+            "bind:value={variable}",
+            "v-model=\"variable\"",
+            "[(ngModel)]=\"variable\"",
+            "value={variable}"
+          ],
+          "correctIndex": 0,
+          "explanation": "Svelte uses bind:value={variable} for two-way binding with inputs."
+        }
+      ]
+    },
+    {
+      "id": "reactivity",
+      "title": "Svelte Reactivity",
+      "questions": [
+        {
+          "id": "r1",
+          "questionText": "What does the $: label do in Svelte?",
+          "options": [
+            "Declares a global variable",
+            "Marks a reactive statement",
+            "Imports a module",
+            "Defines a function"
+          ],
+          "correctIndex": 1,
+          "explanation": "The $: label marks a reactive statement, which updates when its dependencies change."
+        },
+        {
+          "id": "r2",
+          "questionText": "How do you create a reactive derived value in Svelte?",
+          "options": [
+            "Using $: derived = a + b",
+            "Using useMemo()",
+            "Using computed property",
+            "Using @derived decorator"
+          ],
+          "correctIndex": 0,
+          "explanation": "You use $: derived = a + b to create a reactive derived value in Svelte."
+        },
+        {
+          "id": "r3",
+          "questionText": "Which Svelte feature automatically updates the DOM when data changes?",
+          "options": [
+            "Reactivity",
+            "Slots",
+            "Transitions",
+            "Stores"
+          ],
+          "correctIndex": 0,
+          "explanation": "Svelte's reactivity system automatically updates the DOM when data changes."
+        },
+        {
+          "id": "r4",
+          "questionText": "How do you listen for changes to a store in Svelte?",
+          "options": [
+            "Using $store syntax",
+            "Using subscribe()",
+            "Using useEffect()",
+            "Using watch()"
+          ],
+          "correctIndex": 1,
+          "explanation": "You listen for changes to a store in Svelte using the subscribe() method."
+        },
+        {
+          "id": "r5",
+          "questionText": "Which Svelte store is best for sharing state globally?",
+          "options": [
+            "Writable store",
+            "Readable store",
+            "Derived store",
+            "All of the above"
+          ],
+          "correctIndex": 3,
+          "explanation": "Writable, readable, and derived stores can all be used for global state sharing in Svelte."
+        }
+      ]
+    }
+  ]
+}

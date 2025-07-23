@@ -6,8 +6,13 @@ export default function Home() {
       <h1 className="text-2xl font-bold mb-4">Select a Language</h1>
       <ul>
         <li>
-          <Link href="/rust/ownership" className="text-blue-600 underline">
-            Rust Fundamentals
+          <Link href="/rust" className="text-blue-600 underline">
+            Rust
+          </Link>
+        </li>
+        <li>
+          <Link href="/svelte" className="text-purple-600 underline">
+            Svelte
           </Link>
         </li>
       </ul>

@@ -18,17 +18,20 @@ export default function ResultPage() {
       <div className="mb-4">
         Score: {correct} / {total}
       </div>
-      <h3 className="font-semibold mb-2">Review Schedule</h3>
+      <h3 className="font-semibold mb-2">Review Answers</h3>
       <ul>
         {session.questions.map((q) => (
-          <li key={q.id}>
-            <span>{q.questionText}</span>
-            <br />
-            <span>
-              Next review: {review[q.id]?.nextReviewDate?.slice(0, 10) || "N/A"}
-            </span>
-            <br />
-            <span>Ease factor: {review[q.id]?.easeFactor?.toFixed(2) || "N/A"}</span>
+          <li key={q.id} className="mb-6">
+            <div className="font-bold">{q.questionText}</div>
+            <div>
+              <strong>Correct Answer:</strong>{" "}
+              <span className="font-bold">
+                {String.fromCharCode(65 + q.correctIndex)}. {q.options[q.correctIndex]}
+              </span>
+            </div>
+            <div className="mt-1 text-gray-700">
+              <strong>Explanation:</strong> {q.explanation}
+            </div>
           </li>
         ))}
       </ul>

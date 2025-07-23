@@ -1,20 +1,67 @@
 "use client";
 import { useQuizStore } from "@/store/quizStore";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import rustData from "@/../data/rust.json";
+import svelteData from "@/../data/svelte.json";
+import { shuffleQuestion } from "@/lib/shuffleQuestion";
+import { useSearchParams } from "next/navigation";
+import Link from "next/link";
+
+const languageData: Record<string, typeof rustData> = {
+  rust: rustData,
+  svelte: svelteData,
+};
+
+type Chapter = {
+  id: string;
+  title: string;
+  questions: Question[];
+};
+
+type Question = {
+  id: string;
+  questionText: string;
+  options: string[];
+  correctIndex: number;
+  explanation?: string;
+};
 
 export default function SessionPage() {
-  const { session, startSession, nextQuestion, answerQuestion } = useQuizStore();
+  const { session, startSession, nextQuestion, answerQuestion, resetSession } = useQuizStore();
+  const [selected, setSelected] = useState<number | null>(null);
+  const [answered, setAnswered] = useState(false);
+
+  // Get language and chapter from query params
+  const searchParams = useSearchParams();
+  const language = searchParams.get("language") || "rust";
+  const chapterId = searchParams.get("chapter") || "ownership";
+  const data = languageData[language];
+  const chapter = data.chapters.find((c) => c.id === chapterId);
 
   useEffect(() => {
-    if (!session) {
-      // Start with first 10 questions from Rust Ownership
-      startSession(rustData.chapters[0].questions.slice(0, 10));
+    resetSession();
+    if (chapter) {
+      const shuffledQuestions = chapter.questions.map(q => shuffleQuestion(q));
+      startSession(shuffledQuestions);
     }
-  }, [session, startSession]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [language, chapterId]);
 
   if (!session) return <div>Loading...</div>;
   const q = session.questions[session.currentIndex];
+
+  const handleAnswer = (i: number) => {
+    if (answered) return;
+    setSelected(i);
+    setAnswered(true);
+    answerQuestion(q.id, i === q.correctIndex);
+  };
+
+  const handleNext = () => {
+    setSelected(null);
+    setAnswered(false);
+    nextQuestion();
+  };
 
   return (
     <main className="p-8">
@@ -23,29 +70,55 @@ export default function SessionPage() {
         {q ? (
           <>
             <div className="mb-4">{q.questionText}</div>
-            <ul>
-              {q.options.map((opt, i) => (
-                <li key={i}>
-                  <button
-                    className="border px-2 py-1 rounded m-1"
-                    onClick={() => {
-                      answerQuestion(q.id, i === q.correctIndex);
-                      nextQuestion();
-                    }}
-                  >
-                    {opt}
-                  </button>
-                </li>
-              ))}
+            <ul className="list-none pl-0">
+              {q.options.map((opt, i) => {
+                let liStyle = "mb-2 flex items-center";
+                if (answered) {
+                  if (i === q.correctIndex) {
+                    liStyle += " bg-green-300"; // Highlight correct answer
+                  } else if (selected === i && i !== q.correctIndex) {
+                    liStyle += " bg-red-300"; // Highlight user's incorrect choice
+                  }
+                }
+                const optionLabel = String.fromCharCode(65 + i); // A, B, C, D
+                return (
+                  <li key={i} className={liStyle}>
+                    <span className="font-bold mr-2">{optionLabel}.</span>
+                    <button
+                      className="border px-2 py-1 rounded w-full text-left"
+                      disabled={answered}
+                      onClick={() => handleAnswer(i)}
+                    >
+                      {opt}
+                    </button>
+                  </li>
+                );
+              })}
             </ul>
-            <div className="mt-4">
-              {session.currentIndex + 1}/{session.questions.length}
-            </div>
+            {answered && (
+              <>
+                <div className="mt-4 p-3 bg-green-50 border rounded text-green-800">
+                  <strong>Correct Answer:</strong>{" "}
+                  <span className="font-bold">
+                    {String.fromCharCode(65 + q.correctIndex)}. {q.options[q.correctIndex]}
+                  </span>
+                </div>
+                <div className="mt-4 p-3 bg-yellow-50 border rounded text-gray-800">
+                  <strong>Explanation:</strong> {q.explanation}
+                </div>
+                <button
+                  className="mt-4 px-4 py-2 bg-blue-600 text-white rounded"
+                  onClick={handleNext}
+                >
+                  Next Question
+                </button>
+              </>
+            )}
           </>
         ) : (
-          <a href="/result" className="mt-4 block text-blue-600 underline">
+          <Link href={`/result?language=${language}&chapter=${chapterId}`} className="mt-4 block text-blue-600 underline">
             See Results
-          </a>
+          </Link>
         )}
       </div>
     </main>

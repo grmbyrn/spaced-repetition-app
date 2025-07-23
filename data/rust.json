@@ -15,51 +15,122 @@
             "To simplify syntax",
             "To enable dynamic typing"
           ],
-          "correctIndex": 1
+          "correctIndex": 1,
+          "explanation": "Rust's ownership system is designed to prevent data races and ensure memory safety without needing a garbage collector."
         },
         {
           "id": "q2",
           "questionText": "Which keyword is used to borrow a value immutably in Rust?",
           "options": [
             "mut",
-            "&",
             "let",
+            "&",
             "ref"
           ],
-          "correctIndex": 1
+          "correctIndex": 2,
+          "explanation": "The '&' symbol is used for immutable borrowing in Rust, allowing read-only access to a value."
         },
         {
           "id": "q3",
           "questionText": "What happens when ownership of a variable is moved?",
           "options": [
-            "The original variable can still be used",
+            "The value is copied",
             "The original variable becomes invalid",
             "Both variables can be used",
-            "The value is copied"
+            "The original variable can still be used"
           ],
-          "correctIndex": 1
+          "correctIndex": 1,
+          "explanation": "After ownership is moved, the original variable becomes invalid and cannot be used."
         },
         {
           "id": "q4",
           "questionText": "Which of the following allows multiple references to a value?",
           "options": [
-            "Mutable borrow",
-            "Immutable borrow",
             "Ownership transfer",
-            "Copy trait"
+            "Mutable borrow",
+            "Copy trait",
+            "Immutable borrow"
           ],
-          "correctIndex": 1
+          "correctIndex": 3,
+          "explanation": "Immutable borrows allow multiple references to a value at the same time, while mutable borrows are exclusive."
         },
         {
           "id": "q5",
           "questionText": "Which error occurs if you try to use a value after its ownership has moved?",
           "options": [
+            "Type mismatch error",
             "Borrow checker error",
             "Lifetime error",
-            "Use after move error",
-            "Type mismatch error"
+            "Use after move error"
           ],
-          "correctIndex": 2
+          "correctIndex": 3,
+          "explanation": "A 'use after move' error occurs when you try to use a value after its ownership has been transferred."
+        }
+      ]
+    },
+    {
+      "id": "variables",
+      "title": "Variables in Rust",
+      "questions": [
+        {
+          "id": "v1",
+          "questionText": "Which keyword is used to declare a variable in Rust?",
+          "options": [
+            "mut",
+            "let",
+            "var",
+            "const"
+          ],
+          "correctIndex": 1,
+          "explanation": "The 'let' keyword is used to declare variables in Rust."
+        },
+        {
+          "id": "v2",
+          "questionText": "How do you make a variable mutable in Rust?",
+          "options": [
+            "Use the 'mut' keyword",
+            "Use the 'var' keyword",
+            "Use the 'let' keyword",
+            "Use the 'mutable' keyword"
+          ],
+          "correctIndex": 0,
+          "explanation": "Adding 'mut' before the variable name makes it mutable in Rust."
+        },
+        {
+          "id": "v3",
+          "questionText": "What will happen if you try to change an immutable variable?",
+          "options": [
+            "It will cause a compile-time error",
+            "It will change successfully",
+            "It will cause a runtime error",
+            "It will be ignored"
+          ],
+          "correctIndex": 0,
+          "explanation": "Trying to change an immutable variable causes a compile-time error in Rust."
+        },
+        {
+          "id": "v4",
+          "questionText": "Which of the following is a valid variable declaration in Rust?",
+          "options": [
+            "var x = 5;",
+            "let x = 5;",
+            "mut x = 5;",
+            "x := 5;"
+          ],
+          "correctIndex": 1,
+          "explanation": "'let x = 5;' is the correct syntax for declaring a variable in Rust."
+        },
+        {
+          "id": "v5",
+          "questionText": "How do you declare a constant in Rust?",
+          "options": [
+            "mut PI = 3.14;",
+            "let PI = 3.14;",
+            "const PI: f64 = 3.14;",
+            "constant PI = 3.14;"
+          ],
+          "correctIndex": 2,
+          "explanation": "Constants in Rust are declared using 'const' and must have a type specified."
         }
       ]
     }
