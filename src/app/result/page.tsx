@@ -20,14 +20,12 @@ export default function ResultPage() {
       </div>
       <h3 className="font-semibold mb-2">Review Answers</h3>
       <ul>
-        {session.questions.map((q) => (
-          <li key={q.id} className="mb-6">
+        {session.questions.map((q, idx) => (
+          <li key={`${q.id}-${idx}`} className="mb-6">
             <div className="font-bold">{q.questionText}</div>
             <div>
               <strong>Correct Answer:</strong>{" "}
-              <span className="font-bold">
-                {String.fromCharCode(65 + q.correctIndex)}. {q.options[q.correctIndex]}
-              </span>
+              {String.fromCharCode(65 + q.correctIndex)}. {q.options[q.correctIndex]}
             </div>
             <div className="mt-1 text-gray-700">
               <strong>Explanation:</strong> {q.explanation}

@@ -70,67 +70,133 @@
     },
     {
       "id": "variables",
-      "title": "Variables in Rust",
+      "title": "Variables, Shadowing, Constants",
       "questions": [
         {
           "id": "v1",
-          "questionText": "Which keyword is used to declare a variable in Rust?",
+          "questionText": "In Rust, what is the default mutability of variables declared using let?",
           "options": [
-            "mut",
-            "let",
-            "var",
-            "const"
+            "Mutable",
+            "Immutable",
+            "Depends on the data type",
+            "Mutable only inside functions"
           ],
           "correctIndex": 1,
-          "explanation": "The 'let' keyword is used to declare variables in Rust."
+          "explanation": "In Rust, variables declared with let are immutable by default. You must explicitly use mut if you want to make them mutable (e.g., let mut x = 5)."
         },
         {
           "id": "v2",
-          "questionText": "How do you make a variable mutable in Rust?",
+          "questionText": "What happens when you try to change the type of a mutable variable in Rust (e.g., from i32 to &str)?",
           "options": [
-            "Use the 'mut' keyword",
-            "Use the 'var' keyword",
-            "Use the 'let' keyword",
-            "Use the 'mutable' keyword"
+            "The program compiles and runs",
+            "Rust automatically converts the type",
+            "A compile-time type error occurs",
+            "The value becomes a union type"
           ],
-          "correctIndex": 0,
-          "explanation": "Adding 'mut' before the variable name makes it mutable in Rust."
+          "correctIndex": 2,
+          "explanation": "In Rust, mutability only allows changing the value, not the type. Changing from an integer to a string causes a type mismatch error."
         },
         {
           "id": "v3",
-          "questionText": "What will happen if you try to change an immutable variable?",
+          "questionText": "What is “shadowing” in Rust?",
           "options": [
-            "It will cause a compile-time error",
-            "It will change successfully",
-            "It will cause a runtime error",
-            "It will be ignored"
+            "When a variable becomes inaccessible due to an if statement",
+            "Declaring a variable of the same name in a new scope or with a new value/type",
+            "A way to make constants mutable",
+            "A feature that allows functions to override variables"
           ],
-          "correctIndex": 0,
-          "explanation": "Trying to change an immutable variable causes a compile-time error in Rust."
+          "correctIndex": 1,
+          "explanation": "Shadowing allows you to declare a new variable with the same name, even with a different type, which replaces the previous binding in that scope."
         },
         {
           "id": "v4",
-          "questionText": "Which of the following is a valid variable declaration in Rust?",
+          "questionText": "What is a key requirement when declaring constants (const) in Rust?",
           "options": [
-            "var x = 5;",
-            "let x = 5;",
-            "mut x = 5;",
-            "x := 5;"
+            "They must be declared inside a function",
+            "They must use lowercase snake_case naming",
+            "Their type must be explicitly declared",
+            "They can be reassigned once"
           ],
-          "correctIndex": 1,
-          "explanation": "'let x = 5;' is the correct syntax for declaring a variable in Rust."
+          "correctIndex": 2,
+          "explanation": "Rust requires explicit type annotations when declaring constants, unlike regular let bindings where the compiler often infers the type."
         },
         {
           "id": "v5",
-          "questionText": "How do you declare a constant in Rust?",
+          "questionText": "Which of the following is NOT allowed in Rust?",
           "options": [
-            "mut PI = 3.14;",
-            "let PI = 3.14;",
-            "const PI: f64 = 3.14;",
-            "constant PI = 3.14;"
+            "Reassigning a mut variable's value",
+            "Shadowing an immutable variable",
+            "Declaring a constant without assigning a value immediately",
+            "Declaring two variables of the same name in different scopes"
           ],
           "correctIndex": 2,
-          "explanation": "Constants in Rust are declared using 'const' and must have a type specified."
+          "explanation": "Constants must be initialized at the point of declaration. You cannot declare them and assign a value later like you can with let."
+        }
+      ]
+    },
+    {
+      "id": "data-types",
+      "title": "Data Types in Rust",
+      "questions": [
+        {
+          "id": "d1",
+          "questionText": "Which of the following is not a scalar type in Rust?",
+          "options": [
+            "i32",
+            "f64",
+            "char",
+            "tuple"
+          ],
+          "correctIndex": 3,
+          "explanation": "tuple is a compound type, not a scalar. Scalar types in Rust include integers, floating-point numbers, booleans, and characters."
+        },
+        {
+          "id": "d2",
+          "questionText": "What is the default floating-point type in Rust when you write a number like 3.14?",
+          "options": [
+            "f32",
+            "float",
+            "f64",
+            "double"
+          ],
+          "correctIndex": 1,
+          "explanation": "Rust defaults to f64 for floating-point literals, providing double-precision by default for better accuracy."
+        },
+        {
+          "id": "d3",
+          "questionText": "What will happen if you declare a boolean variable in Rust without initializing it?",
+          "options": [
+            "It gets a default value of false",
+            "It gets a default value of true",
+            "It is automatically inferred",
+            "It results in a compile-time error"
+          ],
+          "correctIndex": 3,
+          "explanation": " In Rust, all variables must be initialized before use, including booleans. Failing to do so results in a compiler error."
+        },
+        {
+          "id": "d4",
+          "questionText": "Which of the following correctly distinguishes a struct from a tuple in Rust?",
+          "options": [
+            "Structs store values of the same type, tuples do not",
+            "Tuples have named fields, structs do not",
+            "Structs have named fields, tuples do not",
+            "Tuples are only for floating-point values"
+          ],
+          "correctIndex": 2,
+          "explanation": "Structs are like records with named fields (e.g., name: String), while tuples are ordered collections accessed by index."
+        },
+        {
+          "id": "d5",
+          "questionText": "What is true about the match statement in Rust when used with an enum?",
+          "options": [
+            "You must only match one of the enum values",
+            "The enum must implement the Default trait",
+            "All possible enum variants must be handled",
+            "match works only with numeric types"
+          ],
+          "correctIndex": 2,
+          "explanation": "Rust’s match statement is exhaustive — you must cover all possible enum variants unless you use a wildcard _ arm."
         }
       ]
     }
