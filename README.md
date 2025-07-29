@@ -64,10 +64,10 @@ styles/               # Global CSS/Tailwind
 
 ## Technologies Used
 
-- Next.js
-- React
-- Zustand
-- Tailwind CSS
+- [Next.js](https://nextjs.org/)
+- [React](https://react.dev/)
+- [Zustand](https://zustand.docs.pmnd.rs/getting-started/introduction)
+- [Tailwind CSS](https://tailwindcss.com/)
 
 ---
 
