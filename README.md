@@ -71,6 +71,15 @@ styles/               # Global CSS/Tailwind
 
 ---
 
+## Rust Notes
+
+As an extra resource, comprehensive **Rust Notes** are available to help users understand key concepts such as ownership, memory management (stack vs. heap), and traits like `Drop`, `Clone`, and `Copy`.
+These notes are especially useful when reviewing Rust quizzes or deepening your knowledge of the language.
+
+📘 **Access the Rust Notes:** [Rust Notes](./rust-notes.md)
+
+---
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](./LICENSE.md) file for details.
