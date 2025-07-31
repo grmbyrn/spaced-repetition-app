@@ -12,12 +12,12 @@ Review sessions adapt to user performance, showing questions more often if answe
 
 ## Features
 
-* **Language Selection:** Choose from supported programming languages (e.g., Rust, Svelte).
-* **Chapter Unlocking:** Unlock chapters one by one; the first chapter is always unlocked.
-* **Quiz Sessions:** Answer multiple-choice questions per chapter.
-* **Spaced Repetition Review:** Review sessions pull questions from all unlocked chapters, prioritizing those answered incorrectly.
-* **Progress Persistence:** Unlocked chapters and review history are saved in `localStorage`.
-* **Responsive UI:** Styled with Tailwind CSS.
+- **Language Selection:** Choose from supported programming languages (e.g., Rust, Svelte).
+- **Chapter Unlocking:** Unlock chapters one by one; the first chapter is always unlocked.
+- **Quiz Sessions:** Answer multiple-choice questions per chapter.
+- **Spaced Repetition Review:** Review sessions pull questions from all unlocked chapters, prioritizing those answered incorrectly.
+- **Progress Persistence:** Unlocked chapters and review history are saved in `localStorage`.
+- **Responsive UI:** Styled with Tailwind CSS.
 
 ---
 
@@ -112,49 +112,49 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
    ```typescript
    export const languageData: Record<string, LanguageJson> = {
-    rust: rustData,
-    svelte: svelteData,
-    sveltekit: sveltekitData,
-    yourLanguage: yourLanguageData
+     rust: rustData,
+     svelte: svelteData,
+     sveltekit: sveltekitData,
+     yourLanguage: yourLanguageData,
    };
    ```
 
 4. Add Link to `src/app/page.tsx` in order to link to correct language.
 
-  ```
-  export default function Home() {
-    return (
-      <main className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-purple-50 to-gray-100">
-        <div className="max-w-md w-full bg-white rounded-xl shadow-lg p-8 flex flex-col items-center">
-          <h1 className="text-3xl font-extrabold mb-8 text-center text-gray-800">
-            Select a Language
-          </h1>
-          <ul className="w-full space-y-6">
-            ...
-            <li>
-              <Link
-                href="/yourLanguage"
-                className="block w-full px-6 py-4 rounded-lg shadow text-lg font-semibold text-center bg-blue-50 text-blue-700 hover:bg-blue-100 hover:scale-105 transition-all duration-200"
-              >
-                Your Language
-              </Link>
-            </li>
-            ...
-          </ul>
-        </div>
-      </main>
-    );
-  }
+```
+export default function Home() {
+  return (
+    <main className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-purple-50 to-gray-100">
+      <div className="max-w-md w-full bg-white rounded-xl shadow-lg p-8 flex flex-col items-center">
+        <h1 className="text-3xl font-extrabold mb-8 text-center text-gray-800">
+          Select a Language
+        </h1>
+        <ul className="w-full space-y-6">
+          ...
+          <li>
+            <Link
+              href="/yourLanguage"
+              className="block w-full px-6 py-4 rounded-lg shadow text-lg font-semibold text-center bg-blue-50 text-blue-700 hover:bg-blue-100 hover:scale-105 transition-all duration-200"
+            >
+              Your Language
+            </Link>
+          </li>
+          ...
+        </ul>
+      </div>
+    </main>
+  );
+}
 ```
 
 ---
 
 ## Technologies Used
 
-* Next.js
-* React
-* Zustand
-* Tailwind CSS
+- Next.js
+- React
+- Zustand
+- Tailwind CSS
 
 ---
 
@@ -162,7 +162,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 As an extra resource, comprehensive Rust Notes are available to help users understand key concepts such as ownership, memory management (stack vs. heap), and traits like Drop, Clone, and Copy. These notes are especially useful when reviewing Rust quizzes or deepening your knowledge of the language.
 
-📘 Access the Rust Notes: [Rust Notes](https://github.com/grmbyrn/spaced-repetition-app/blob/main/data/rust-notes.md) *(update link if needed)*
+📘 Access the Rust Notes: [Rust Notes](https://github.com/grmbyrn/rust-notes) _(update link if needed)_
 
 ---
 
