@@ -20,7 +20,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     },
     body: JSON.stringify({
       model: "gpt-3.5-turbo",
-      messages,
+      messages: [
+        {
+          role: "system",
+          content:
+            "You are a helpful tutor for programming quizzes. Only answer questions related to the current quiz or chapter. If a user asks something unrelated, politely refuse and remind them to focus on their study material.",
+        },
+        ...messages,
+      ],
       max_tokens: 300,
     }),
   });
