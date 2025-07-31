@@ -103,17 +103,6 @@ export default function SessionPage() {
     nextQuestion();
   };
 
-  // Check for missing language or chapter
-  if (!language || !chapterId) {
-    return (
-      <main className="p-8">
-        <h2 className="text-lg font-bold mb-2">Session</h2>
-        <div>Missing language or chapter. Please select a chapter to start a session.</div>
-        <Link href="/" className="mt-4 block text-blue-600 underline">Go Home</Link>
-      </main>
-    );
-  }
-
   return (
     <main className="p-8">
       <h2 className="text-lg font-bold mb-2">
