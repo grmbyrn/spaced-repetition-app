@@ -53,6 +53,9 @@ export default function StreakCalendar() {
   const [displayYear, setDisplayYear] = useState(now.getFullYear());
   const [displayMonth, setDisplayMonth] = useState(now.getMonth());
 
+  // Memoize today's date string once per render
+  const todayStr = getToday();
+
   useEffect(() => {
     const stored = localStorage.getItem("completedDays");
     setCompletedDays(stored ? JSON.parse(stored) : []);
@@ -110,59 +113,57 @@ export default function StreakCalendar() {
 
       {open && (
         <>
-            {/* Month navigation */}
-            <div className="mb-2 text-lg text-center flex items-center justify-center gap-2">
-                <button
-                className="px-2 py-1 rounded bg-gray-200 hover:bg-gray-300 disabled:opacity-50"
-                onClick={handlePrevMonth}
-                disabled={displayYear === 2025 && displayMonth === 0}
-                >
-                &lt;
-                </button>
-                <span>
-                {monthName} {displayYear}
-                </span>
-                <button
-                className="px-2 py-1 rounded bg-gray-200 hover:bg-gray-300"
-                onClick={handleNextMonth}
-                >
-                &gt;
-                </button>
-            </div>
-            {/* Weekday headers */}
-            <div className="grid grid-cols-7 gap-1 mb-1">
+          {/* Month navigation */}
+          <div className="mb-2 text-lg text-center flex items-center justify-center gap-2">
+            <button
+              className="px-2 py-1 rounded bg-gray-200 hover:bg-gray-300 disabled:opacity-50"
+              onClick={handlePrevMonth}
+              disabled={displayYear === 2025 && displayMonth === 0}
+            >
+              &lt;
+            </button>
+            <span>
+              {monthName} {displayYear}
+            </span>
+            <button
+              className="px-2 py-1 rounded bg-gray-200 hover:bg-gray-300"
+              onClick={handleNextMonth}
+            >
+              &gt;
+            </button>
+          </div>
+          {/* Weekday headers */}
+          <div className="grid grid-cols-7 gap-1 mb-1">
             {WEEKDAYS.map((day) => (
-                <div
-                key={day}
-                className="text-center font-semibold text-gray-600"
-                >
+              <div key={day} className="text-center font-semibold text-gray-600">
                 {day}
-                </div>
+              </div>
             ))}
-            </div>
+          </div>
 
-            {/* Calendar days */}
-            <div className="grid grid-cols-7 gap-1">
+          {/* Calendar days */}
+          <div className="grid grid-cols-7 gap-1">
             {paddedDays.map((item, idx) =>
-                item ? (
+              item ? (
                 <div
-                    key={item.iso}
-                    className={`p-2 text-center rounded font-semibold
-                    ${
-                        completedDays.includes(item.iso)
-                        ? "bg-green-200 text-green-700"
-                        : isBeforeToday(item.iso)
-                        ? "bg-red-100 text-red-700"
-                        : "bg-gray-100"
-                    }`}
+                  key={item.iso}
+                  className={`p-2 text-center rounded font-semibold ${
+                    completedDays.includes(item.iso)
+                      ? "bg-green-200 text-green-700" // completed day
+                      : item.iso === todayStr
+                      ? "bg-yellow-200 text-yellow-700" // today but NOT completed yet
+                      : isBeforeToday(item.iso)
+                      ? "bg-red-100 text-red-700" // past day NOT completed
+                      : "bg-gray-100" // future day
+                  }`}
                 >
-                    {item.day}
+                  {item.day}
                 </div>
-                ) : (
+              ) : (
                 <div key={`empty-${idx}`} className="p-2" />
-                )
+              )
             )}
-            </div>
+          </div>
         </>
       )}
     </Card>
