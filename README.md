@@ -147,10 +147,10 @@ export default function Home() {
 
 ## Technologies Used
 
-- Next.js
-- React
-- Zustand
-- Tailwind CSS
+- [Next.js](https://nextjs.org/)
+- [React](https://react.dev/)
+- [Zustand](https://zustand-demo.pmnd.rs/)
+- [Tailwind CSS](https://tailwindcss.com/)
 
 ---
 
