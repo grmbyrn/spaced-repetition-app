@@ -126,6 +126,14 @@ export default function LanguagePage({ params }: { params: Promise<{ language: s
           </div>
         )}
       </div>
+      <div className="mt-8 flex justify-center">
+        <Link
+          href="/"
+          className="px-6 py-3 rounded-lg bg-green-600 text-white font-semibold shadow hover:bg-green-700 transition-colors duration-150 text-center"
+        >
+          ⬅️ Back to Home
+        </Link>
+      </div>
     </main>
   );
 }
