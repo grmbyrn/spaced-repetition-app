@@ -41,8 +41,8 @@ export default function SessionPage() {
 
   // Get language and chapter from query params
   const searchParams = useSearchParams();
-  const language = searchParams.get("language") || "rust";
-  const chapterId = searchParams.get("chapter") || "ownership";
+  const language = searchParams?.get("language") || "rust";
+  const chapterId = searchParams?.get("chapter") || "ownership";
   const data: LanguageJson = languageData[language];
   const chapter: Chapter | undefined = data.chapters.find((c) => c.id === chapterId);
   const isReview = chapterId === "review";
@@ -102,6 +102,17 @@ export default function SessionPage() {
     setAnswered(false);
     nextQuestion();
   };
+
+  // Check for missing language or chapter
+  if (!language || !chapterId) {
+    return (
+      <main className="p-8">
+        <h2 className="text-lg font-bold mb-2">Session</h2>
+        <div>Missing language or chapter. Please select a chapter to start a session.</div>
+        <Link href="/" className="mt-4 block text-blue-600 underline">Go Home</Link>
+      </main>
+    );
+  }
 
   return (
     <main className="p-8">
