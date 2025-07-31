@@ -1,7 +1,3 @@
-Here's the updated README content incorporating the forking and adding language/chapters instructions you requested. You can replace your current README with this:
-
----
-
 # Spaced Repetition Programming Quiz App
 
 A web app for learning programming concepts using spaced repetition.
