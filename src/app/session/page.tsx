@@ -1,16 +1,11 @@
 "use client";
 import { useQuizStore } from "@/store/quizStore";
 import { useEffect, useState } from "react";
-import rustData from "@/../data/rust.json";
-import svelteData from "@/../data/svelte.json";
-import { shuffleQuestion } from "@/lib/shuffleQuestion";
+import { languageData } from "@/lib/languageData";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
-
-const languageData: Record<string, typeof rustData> = {
-  rust: rustData,
-  svelte: svelteData,
-};
+import { shuffleQuestion } from "@/lib/shuffleQuestion";
+import type { Chapter, LanguageJson } from "@/types/language";
 
 function useUnlockedChapters(language: string) {
   const key = `unlockedChapters_${language}`;
@@ -23,7 +18,7 @@ function useUnlockedChapters(language: string) {
     const firstChapterId = languageData[language].chapters[0]?.id;
     if (firstChapterId && !unlockedChapters.includes(firstChapterId)) {
       unlockedChapters = [firstChapterId, ...unlockedChapters];
-      localStorage.setItem(key, JSON.stringify(unlockedChapters)); // <-- persist!
+      localStorage.setItem(key, JSON.stringify(unlockedChapters));
     }
     setUnlocked(unlockedChapters);
   }, [key, language]);
@@ -48,10 +43,10 @@ export default function SessionPage() {
   const searchParams = useSearchParams();
   const language = searchParams.get("language") || "rust";
   const chapterId = searchParams.get("chapter") || "ownership";
-  const data = languageData[language];
-  const chapter = data.chapters.find((c) => c.id === chapterId);
+  const data: LanguageJson = languageData[language];
+  const chapter: Chapter | undefined = data.chapters.find((c) => c.id === chapterId);
   const isReview = chapterId === "review";
-  const { unlocked } = useUnlockedChapters(language); // <-- use the hook here
+  const { unlocked } = useUnlockedChapters(language);
 
   useEffect(() => {
     resetSession();
@@ -76,10 +71,10 @@ export default function SessionPage() {
         .sort(() => Math.random() - 0.5)
         .slice(0, Math.min(numQuestions, uniqueQuestions.length))
         .map(q => shuffleQuestion(q));
-      startSession(shuffled);
+      startSession(shuffled, language, chapterId);
     } else if (chapter) {
       const shuffledQuestions = chapter.questions.map(q => shuffleQuestion(q));
-      startSession(shuffledQuestions);
+      startSession(shuffledQuestions, language, chapterId);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [language, chapterId, unlocked]);
@@ -110,7 +105,11 @@ export default function SessionPage() {
 
   return (
     <main className="p-8">
-      <h2 className="text-lg font-bold mb-2">Session</h2>
+      <h2 className="text-lg font-bold mb-2">
+        {isReview
+          ? `${data.title} Review`
+          : chapter?.title || "Session"}
+      </h2>
       <div>
         {q ? (
           <>

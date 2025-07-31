@@ -5,6 +5,7 @@
     {
       "id": "basics",
       "title": "Svelte Basics",
+      "resourceUrl": "",
       "questions": [
         {
           "id": "s1",
@@ -71,6 +72,7 @@
     {
       "id": "reactivity",
       "title": "Svelte Reactivity",
+      "resourceUrl": "",
       "questions": [
         {
           "id": "r1",

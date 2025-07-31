@@ -24,6 +24,14 @@ export default function Home() {
               Svelte
             </Link>
           </li>
+          <li>
+            <Link
+              href="/sveltekit"
+              className="block w-full px-6 py-4 rounded-lg shadow text-lg font-semibold text-center bg-blue-50 text-blue-700 hover:bg-blue-100 hover:scale-105 transition-all duration-200"
+            >
+              SvelteKit
+            </Link>
+          </li>
         </ul>
       </div>
     </main>

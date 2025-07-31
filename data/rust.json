@@ -5,9 +5,11 @@
     {
       "id": "installation",
       "title": "Rust Installation, Hello World, Hello Cargo",
+      "resourceUrl": "https://www.youtube.com/watch?v=R33h77nrMqc&list=PLPoSdR46FgI412aItyJhj2bF66cudB6Qs&index=1&pp=iAQB",
+      "gitHubNotes": "https://github.com/grmbyrn/rust-notes/blob/main/src/lessons/lesson01.rs",
       "questions": [
         {
-          "id": "q1",
+          "id": "rust1a",
           "questionText": "What kind of programming language is Rust?",
           "options": [
             "Interpreted, dynamically typed",
@@ -19,7 +21,7 @@
           "explanation": "Rust is a compiled language (using rustc) and uses static typing, which helps catch many errors at compile time."
         },
         {
-          "id": "q2",
+          "id": "rust1b",
           "questionText": "What is the main advantage of using Cargo over manually using rustc?",
           "options": [
             "Cargo can only run unit tests",
@@ -31,7 +33,7 @@
           "explanation": "Cargo is Rust’s package manager and build tool, streamlining compilation, dependencies, and project setup."
         },
         {
-          "id": "q3",
+          "id": "rust1c",
           "questionText": "What does the exclamation mark in println! indicate in Rust?",
           "options": [
             "It is a syntax error",
@@ -43,7 +45,7 @@
           "explanation": "In Rust, macros like println! use ! to distinguish them from regular functions."
         },
         {
-          "id": "q4",
+          "id": "rust1d",
           "questionText": "What is the function of the cargo check command?",
           "options": [
             "Compiles and runs the program",
@@ -55,7 +57,7 @@
           "explanation": "cargo check is used for fast syntax and type-checking, without building the binary."
         },
         {
-          "id": "q5",
+          "id": "rust1e",
           "questionText": "What is the significance of cargo build --release?",
           "options": [
             "It builds the debug version of the app",
@@ -71,9 +73,11 @@
     {
       "id": "variables",
       "title": "Variables, Shadowing, Constants",
+      "resourceUrl": "https://www.youtube.com/watch?v=6Ag0MZUlvBE&list=PLPoSdR46FgI412aItyJhj2bF66cudB6Qs&index=2&pp=iAQB0gcJCccJAYcqIYzv",
+      "gitHubNotes": "https://github.com/grmbyrn/rust-notes/blob/main/src/lessons/lesson02.rs",
       "questions": [
         {
-          "id": "v1",
+          "id": "rust2a",
           "questionText": "In Rust, what is the default mutability of variables declared using let?",
           "options": [
             "Mutable",
@@ -85,7 +89,7 @@
           "explanation": "In Rust, variables declared with let are immutable by default. You must explicitly use mut if you want to make them mutable (e.g., let mut x = 5)."
         },
         {
-          "id": "v2",
+          "id": "rust2b",
           "questionText": "What happens when you try to change the type of a mutable variable in Rust (e.g., from i32 to &str)?",
           "options": [
             "The program compiles and runs",
@@ -97,7 +101,7 @@
           "explanation": "In Rust, mutability only allows changing the value, not the type. Changing from an integer to a string causes a type mismatch error."
         },
         {
-          "id": "v3",
+          "id": "rust2c",
           "questionText": "What is “shadowing” in Rust?",
           "options": [
             "When a variable becomes inaccessible due to an if statement",
@@ -109,7 +113,7 @@
           "explanation": "Shadowing allows you to declare a new variable with the same name, even with a different type, which replaces the previous binding in that scope."
         },
         {
-          "id": "v4",
+          "id": "rust2d",
           "questionText": "What is a key requirement when declaring constants (const) in Rust?",
           "options": [
             "They must be declared inside a function",
@@ -121,7 +125,7 @@
           "explanation": "Rust requires explicit type annotations when declaring constants, unlike regular let bindings where the compiler often infers the type."
         },
         {
-          "id": "v5",
+          "id": "rust2e",
           "questionText": "Which of the following is NOT allowed in Rust?",
           "options": [
             "Reassigning a mut variable's value",
@@ -137,9 +141,11 @@
     {
       "id": "data-types",
       "title": "Data Types in Rust",
+      "resourceUrl": "https://www.youtube.com/watch?v=NyqJp5M3hRE&list=PLPoSdR46FgI412aItyJhj2bF66cudB6Qs&index=3&pp=iAQB",
+      "gitHubNotes": "https://github.com/grmbyrn/rust-notes/blob/main/src/lessons/lesson03.rs",
       "questions": [
         {
-          "id": "d1",
+          "id": "rust3a",
           "questionText": "Which of the following is not a scalar type in Rust?",
           "options": [
             "i32",
@@ -151,7 +157,7 @@
           "explanation": "tuple is a compound type, not a scalar. Scalar types in Rust include integers, floating-point numbers, booleans, and characters."
         },
         {
-          "id": "d2",
+          "id": "rust3b",
           "questionText": "What is the default floating-point type in Rust when you write a number like 3.14?",
           "options": [
             "f32",
@@ -163,7 +169,7 @@
           "explanation": "Rust defaults to f64 for floating-point literals, providing double-precision by default for better accuracy."
         },
         {
-          "id": "d3",
+          "id": "rust3c",
           "questionText": "What will happen if you declare a boolean variable in Rust without initializing it?",
           "options": [
             "It gets a default value of false",
@@ -175,7 +181,7 @@
           "explanation": " In Rust, all variables must be initialized before use, including booleans. Failing to do so results in a compiler error."
         },
         {
-          "id": "d4",
+          "id": "rust3d",
           "questionText": "Which of the following correctly distinguishes a struct from a tuple in Rust?",
           "options": [
             "Structs store values of the same type, tuples do not",
@@ -187,7 +193,7 @@
           "explanation": "Structs are like records with named fields (e.g., name: String), while tuples are ordered collections accessed by index."
         },
         {
-          "id": "d5",
+          "id": "rust3e",
           "questionText": "What is true about the match statement in Rust when used with an enum?",
           "options": [
             "You must only match one of the enum values",
@@ -197,6 +203,432 @@
           ],
           "correctIndex": 2,
           "explanation": "Rust’s match statement is exhaustive — you must cover all possible enum variants unless you use a wildcard _ arm."
+        }
+      ]
+    },
+    {
+      "id": "functions",
+      "title": "Functions in Rust",
+      "resourceUrl": "https://www.youtube.com/watch?v=hJLc2Zu405A&list=PLPoSdR46FgI412aItyJhj2bF66cudB6Qs&index=4&pp=iAQB",
+      "gitHubNotes": "https://github.com/grmbyrn/rust-notes/blob/main/src/lessons/lesson04.rs",
+      "questions": [
+        {
+          "id": "rust4a",
+          "questionText": "What keyword is used to declare a function in Rust?",
+          "options": [
+            "function",
+            "fn",
+            "def",
+            "func"
+          ],
+          "correctIndex": 1,
+          "explanation": "Rust uses the 'fn' keyword to declare functions."
+        },
+        {
+          "id": "rust4b",
+          "questionText": "In Rust, why must the type of function parameters be specified?",
+          "options": [
+            "To allow the function to compile faster",
+            "Because Rust is statically typed and requires knowing types at compile time",
+            "To enable dynamic typing at runtime",
+            "It is optional and depends on the function"
+          ],
+          "correctIndex": 1,
+          "explanation": "Rust requires explicit parameter types because it is statically typed and needs this information at compile time."
+        },
+        {
+          "id": "rust4c",
+          "questionText": "What is the difference between a statement and an expression in Rust?",
+          "options": [
+            "Statements return values; expressions do not",
+            "Expressions return values; statements do not",
+            "Both always return values",
+            "Neither return values"
+          ],
+          "correctIndex": 1,
+          "explanation": "In Rust, expressions evaluate to a value, whereas statements perform actions but do not return a value."
+        },
+        {
+          "id": "rust4d",
+          "questionText": "How do you return a value from a Rust function without using the 'return' keyword?",
+          "options": [
+            "By ending the function with a semicolon",
+            "By placing the value expression as the last line without a semicolon",
+            "By using a 'yield' keyword",
+            "You must always use the 'return' keyword"
+          ],
+          "correctIndex": 1,
+          "explanation": "Rust functions return the value of the last expression without a semicolon; adding a semicolon turns it into a statement and discards the value."
+        },
+        {
+          "id": "rust4e",
+          "questionText": "What is the naming convention for functions in Rust?",
+          "options": [
+            "CamelCase",
+            "snake_case",
+            "PascalCase",
+            "kebab-case"
+          ],
+          "correctIndex": 1,
+          "explanation": "Functions in Rust are conventionally named using snake_case."
+        }
+      ]
+    },
+    {
+      "id": "control_flow",
+      "title": "Control Flow in Rust",
+      "resourceUrl": "https://www.youtube.com/watch?v=2w_FTiD74JI&list=PLPoSdR46FgI412aItyJhj2bF66cudB6Qs&index=5&pp=iAQB",
+      "gitHubNotes": "https://github.com/grmbyrn/rust-notes/blob/main/src/lessons/lesson05.rs",
+      "questions": [
+        {
+          "id": "rust5a",
+          "questionText": "What makes it possible to assign the result of an if expression to a variable in Rust?",
+          "options": [
+            "Rust automatically converts if statements into functions",
+            "All expressions in Rust return a tuple",
+            "If expressions in Rust are evaluated and return a value",
+            "Rust allows dynamic typing for if statements"
+          ],
+          "correctIndex": 2,
+          "explanation": "In Rust, if is an expression, meaning it evaluates to a value and can be used where a value is expected, like in variable assignments."
+        },
+        {
+          "id": "rust5b",
+          "questionText": "What will happen if a match expression does not cover all possible enum variants?",
+          "options": [
+            "It will compile, but produce a runtime warning",
+            "It will compile with a deprecation notice",
+            "It will fail to compile due to non-exhaustive patterns",
+            "It will default to the first pattern automatically"
+          ],
+          "correctIndex": 2,
+          "explanation": "Rust requires all match expressions to be exhaustive; missing a variant will result in a compile-time error."
+        },
+        {
+          "id": "rust5c",
+          "questionText": "Which keyword is used to exit a loop and optionally return a value?",
+          "options": [
+            "continue",
+            "exit",
+            "return",
+            "break"
+          ],
+          "correctIndex": 3,
+          "explanation": "The break keyword exits a loop, and in Rust, it can return a value when used inside loop expressions."
+        },
+        {
+          "id": "rust5d",
+          "questionText": "What is the correct syntax to iterate over a range of numbers from 1 to 4 (inclusive) in Rust?",
+          "options": [
+            "for number in 1..4",
+            "for number in 1..=4",
+            "for number = 1 to 4",
+            "for (number in range(1, 5))"
+          ],
+          "correctIndex": 1,
+          "explanation": "`1..=4` is an inclusive range in Rust, meaning it includes both 1 and 4. `1..4` would exclude 4."
+        },
+        {
+          "id": "rust5e",
+          "questionText": "Why do we need to add the `mut` keyword when modifying a variable inside a loop?",
+          "options": [
+            "Because variables are immutable by default in Rust",
+            "Because loops in Rust only work with mutable variables",
+            "Because the compiler can’t infer variable types without `mut`",
+            "Because `mut` is required for all numerical operations"
+          ],
+          "correctIndex": 0,
+          "explanation": "In Rust, variables are immutable by default, so you must explicitly declare them mutable with `mut` to change their value."
+        },
+        {
+          "id": "rust5f",
+          "questionText": "What does the `continue` keyword do in a loop?",
+          "options": [
+            "Exits the loop entirely",
+            "Pauses the loop and waits for user input",
+            "Skips the current iteration and starts the next",
+            "Repeats the current iteration"
+          ],
+          "correctIndex": 2,
+          "explanation": "`continue` skips the remaining code in the current loop iteration and proceeds with the next iteration."
+        },
+        {
+          "id": "rust5g",
+          "questionText": "What is the purpose of using `.chars()` when iterating over a string?",
+          "options": [
+            "It converts the string into a list of numbers",
+            "It reverses the string characters",
+            "It splits the string into individual characters",
+            "It transforms each character into its Unicode value"
+          ],
+          "correctIndex": 2,
+          "explanation": "The `.chars()` method returns an iterator over the characters of a string, allowing character-by-character processing."
+        },
+        {
+          "id": "rust5h",
+          "questionText": "In the FizzBuzz example, which condition should be checked first?",
+          "options": [
+            "Divisible by 3",
+            "Divisible by 5",
+            "Divisible by both 3 and 5",
+            "None, order doesn’t matter"
+          ],
+          "correctIndex": 2,
+          "explanation": "The check for divisibility by both 3 and 5 must come first, otherwise individual checks for 3 or 5 will match first and skip the combined condition."
+        }
+      ]
+    },
+    {
+      "id": "ownership",
+      "title": "Understanding Ownership in Rust",
+      "resourceUrl": "https://www.youtube.com/watch?v=9VBLOwmNE1g&list=PLPoSdR46FgI412aItyJhj2bF66cudB6Qs&index=6&pp=iAQB",
+      "gitHubNotes": "https://github.com/grmbyrn/rust-notes/blob/main/src/lessons/lesson06.rs",
+      "questions": [
+        {
+          "id": "rust6a",
+          "questionText": "What is the primary goal of Rust’s ownership system?",
+          "options": [
+            "To enable faster GUI rendering",
+            "To manage heap data safely and efficiently",
+            "To avoid all types of memory allocation",
+            "To automatically create backup copies of data"
+          ],
+          "correctIndex": 1,
+          "explanation": "Ownership in Rust helps manage heap-allocated data safely and efficiently without a garbage collector."
+        },
+        {
+          "id": "rust6b",
+          "questionText": "What happens to a variable’s value when it goes out of scope in Rust?",
+          "options": [
+            "It is ignored by the compiler",
+            "It is manually freed using a `free()` call",
+            "Rust automatically calls the `drop` function",
+            "It stays in memory until the program ends"
+          ],
+          "correctIndex": 2,
+          "explanation": "Rust automatically calls the `drop` function when a value goes out of scope to free heap memory."
+        },
+        {
+          "id": "rust6c",
+          "questionText": "Why does assigning one `String` variable to another cause a compile error in Rust?",
+          "options": [
+            "Because Strings can’t be reassigned",
+            "Because Strings require explicit memory allocation",
+            "Because the ownership of the heap data is moved to the new variable",
+            "Because String is a constant type"
+          ],
+          "correctIndex": 2,
+          "explanation": "When a `String` is assigned to another variable, ownership of the heap data moves, invalidating the original variable."
+        },
+        {
+          "id": "rust6d",
+          "questionText": "What does the `.clone()` method do when called on a `String`?",
+          "options": [
+            "Deletes the existing string and returns a pointer",
+            "Performs a shallow copy of the string",
+            "Creates a deep copy of the string's heap data",
+            "Changes the string to a literal"
+          ],
+          "correctIndex": 2,
+          "explanation": "The `.clone()` method performs a deep copy of the heap data, preserving both the original and the clone."
+        },
+        {
+          "id": "rust6e",
+          "questionText": "Why do integers not require `.clone()` to be reassigned in Rust?",
+          "options": [
+            "Because integers are dynamically typed",
+            "Because integers are always stored on the heap",
+            "Because integers implement the `Copy` trait",
+            "Because integers use reference counting"
+          ],
+          "correctIndex": 2,
+          "explanation": "Types like integers are stored on the stack and implement the `Copy` trait, making trivial copying safe and efficient."
+        },
+        {
+          "id": "rust6f",
+          "questionText": "Which type of memory is used for storing values of unknown or dynamic size in Rust?",
+          "options": [
+            "Stack",
+            "Cache",
+            "Heap",
+            "Register"
+          ],
+          "correctIndex": 2,
+          "explanation": "The heap is used for dynamically sized or unknown-sized values, while the stack is for fixed-size data."
+        },
+        {
+          "id": "rust6g",
+          "questionText": "What is a key difference between stack and heap memory in Rust?",
+          "options": [
+            "Stack memory is used for strings only",
+            "Heap memory can’t store numeric types",
+            "Stack memory is fast and has fixed size data; heap is slower and used for dynamic data",
+            "Heap memory is used for function pointers only"
+          ],
+          "correctIndex": 2,
+          "explanation": "Stack memory is fast and stores fixed-size data; heap memory is slower and used for dynamic allocations."
+        },
+        {
+          "id": "rust6h",
+          "questionText": "Which trait prevents a type from also implementing the `Copy` trait?",
+          "options": [
+            "Clone",
+            "Drop",
+            "Debug",
+            "PartialEq"
+          ],
+          "correctIndex": 1,
+          "explanation": "Types that implement the `Drop` trait cannot also implement `Copy`, as automatic duplication could lead to double frees."
+        },
+        {
+          "id": "rust6i",
+          "questionText": "What happens when a value is passed to a function in Rust?",
+          "options": [
+            "The value is always cloned",
+            "The value’s ownership is moved unless it implements `Copy`",
+            "Only a reference to the value is used",
+            "The value is ignored by the function"
+          ],
+          "correctIndex": 1,
+          "explanation": "Unless a type implements the `Copy` trait, passing it to a function moves ownership and invalidates the original variable."
+        },
+        {
+          "id": "rust6j",
+          "questionText": "Why does Rust avoid performing deep copies by default when using `=`?",
+          "options": [
+            "Deep copies are unsafe in systems programming",
+            "Deep copies can introduce runtime panics",
+            "Deep copies are expensive in terms of performance",
+            "Rust uses immutable references for all assignments"
+          ],
+          "correctIndex": 2,
+          "explanation": "Rust avoids deep copies unless explicitly requested with `.clone()` because cloning heap data is expensive."
+        }
+      ]
+    },
+    {
+      "id": "ownership-and-borrowing",
+      "title": "Ownership, Borrowing, and References in Rust",
+      "questions": [
+        {
+          "id": "rust7a",
+          "questionText": "What happens when you pass a String to a function in Rust without using a reference?",
+          "options": [
+            "The String is cloned automatically",
+            "The function borrows the String temporarily",
+            "Ownership of the String is moved to the function",
+            "The String becomes immutable"
+          ],
+          "correctIndex": 2,
+          "explanation": "Passing a String without a reference moves ownership to the function. This means the original variable can no longer be used unless ownership is returned."
+        },
+        {
+          "id": "rust7b",
+          "questionText": "Why can integers be used after being passed to a function in Rust?",
+          "options": [
+            "Because they are stored on the heap",
+            "Because integers implement the Copy trait",
+            "Because Rust automatically creates references",
+            "Because they are immutable"
+          ],
+          "correctIndex": 1,
+          "explanation": "Integers implement the Copy trait, so they are copied rather than moved when passed to functions."
+        },
+        {
+          "id": "rust7c",
+          "questionText": "What does borrowing mean in Rust?",
+          "options": [
+            "Creating a mutable variable from another variable",
+            "Passing ownership of a value to another function",
+            "Temporarily using a value without taking ownership",
+            "Duplicating a value to avoid ownership issues"
+          ],
+          "correctIndex": 2,
+          "explanation": "Borrowing refers to temporarily accessing a value via a reference without taking ownership, allowing the original owner to retain control."
+        },
+        {
+          "id": "rust7d",
+          "questionText": "Which of the following best describes Rust's rule about mutable references?",
+          "options": [
+            "You can have any number of mutable references",
+            "You can only have one mutable reference or many immutable ones at a time",
+            "Mutable references must be declared inside functions",
+            "Mutable references are unsafe and discouraged"
+          ],
+          "correctIndex": 1,
+          "explanation": "Rust enforces that you may have one mutable reference or any number of immutable references, but not both at the same time in the same scope."
+        },
+        {
+          "id": "rust7e",
+          "questionText": "What is a dangling reference in Rust?",
+          "options": [
+            "A reference to a variable that has been dropped",
+            "A variable that is declared but not used",
+            "A type mismatch between two variables",
+            "A bug in Rust's memory allocator"
+          ],
+          "correctIndex": 0,
+          "explanation": "A dangling reference occurs when a reference points to memory that has already been freed or is out of scope. Rust prevents this at compile time."
+        },
+        {
+          "id": "rust7f",
+          "questionText": "How can you avoid moving a String into a function while still accessing it inside?",
+          "options": [
+            "Pass the String as a mutable reference",
+            "Pass a reference to the String (e.g., &s)",
+            "Convert the String to a static type",
+            "Use the Copy trait"
+          ],
+          "correctIndex": 1,
+          "explanation": "By passing a reference (e.g., `&s`), you borrow the String and avoid transferring ownership, so the original value remains usable."
+        },
+        {
+          "id": "rust7g",
+          "questionText": "What does Rust require to modify a borrowed value?",
+          "options": [
+            "The variable must be cloned first",
+            "The reference must be immutable",
+            "The reference must be mutable",
+            "The variable must be defined in main()"
+          ],
+          "correctIndex": 2,
+          "explanation": "To modify a borrowed value, you must use a mutable reference (`&mut`), and the original variable must also be declared as mutable."
+        },
+        {
+          "id": "rust7h",
+          "questionText": "Why does Rust not allow both mutable and immutable references at the same time?",
+          "options": [
+            "Because it violates static typing",
+            "To prevent race conditions and ensure memory safety",
+            "To optimize compiler performance",
+            "Because functions can't handle both reference types"
+          ],
+          "correctIndex": 1,
+          "explanation": "Allowing both mutable and immutable references at the same time could lead to data races. Rust enforces this rule at compile time for safety."
+        },
+        {
+          "id": "rust7i",
+          "questionText": "What does the function signature `fn calculate_length(s: &String) -> usize` signify?",
+          "options": [
+            "The function returns the length and the original string",
+            "The function takes ownership of a String and returns its size",
+            "The function borrows a String and returns its length",
+            "The function creates a new String based on input"
+          ],
+          "correctIndex": 2,
+          "explanation": "The `&String` in the parameter means the function borrows the string, and it returns the length without taking ownership."
+        },
+        {
+          "id": "rust7j",
+          "questionText": "How does Rust prevent functions from returning dangling references?",
+          "options": [
+            "By disallowing return statements with references",
+            "By forcing the use of the Copy trait",
+            "By tracking lifetimes at compile time",
+            "By requiring all variables to be global"
+          ],
+          "correctIndex": 2,
+          "explanation": "Rust uses lifetimes and scope analysis at compile time to ensure that references don’t outlive the data they point to, preventing dangling references."
         }
       ]
     }

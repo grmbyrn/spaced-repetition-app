@@ -18,12 +18,14 @@ type ReviewState = {
 type QuizSession = {
   questions: Question[];
   currentIndex: number;
+  language: string;
+  chapterId: string;
 };
 
 type StoreState = {
   session: QuizSession | null;
   review: Record<string, ReviewState>;
-  startSession: (questions: Question[]) => void;
+  startSession: (questions: Question[], language: string, chapterId: string) => void;
   answerQuestion: (questionId: string, correct: boolean) => void;
   nextQuestion: () => void;
   resetSession: () => void;
@@ -34,9 +36,9 @@ export const useQuizStore = create<StoreState>()(
     (set, get) => ({
       session: null,
       review: {},
-      startSession: (questions) =>
+      startSession: (questions, language, chapterId) =>
         set({
-          session: { questions, currentIndex: 0 },
+          session: { questions, currentIndex: 0, language, chapterId },
         }),
       answerQuestion: (questionId, correct) => {
         const now = new Date().toISOString();

@@ -1,0 +1,73 @@
+{
+  "language": "sveltekit",
+  "title": "SvelteKit Fundamentals",
+  "chapters": [
+    {
+      "id": "reactivity",
+      "title": "SvelteKit Reactivity",
+      "resourceUrl": "",
+      "questions": [
+        {
+          "id": "red1",
+          "questionText": "What does the $: label do in Svelte?",
+          "options": [
+            "Declares a global variable",
+            "Marks a reactive statement",
+            "Imports a module",
+            "Defines a function"
+          ],
+          "correctIndex": 1,
+          "explanation": "The $: label marks a reactive statement, which updates when its dependencies change."
+        },
+        {
+          "id": "red2",
+          "questionText": "How do you create a reactive derived value in Svelte?",
+          "options": [
+            "Using $: derived = a + b",
+            "Using useMemo()",
+            "Using computed property",
+            "Using @derived decorator"
+          ],
+          "correctIndex": 0,
+          "explanation": "You use $: derived = a + b to create a reactive derived value in Svelte."
+        },
+        {
+          "id": "red3",
+          "questionText": "Which Svelte feature automatically updates the DOM when data changes?",
+          "options": [
+            "Reactivity",
+            "Slots",
+            "Transitions",
+            "Stores"
+          ],
+          "correctIndex": 0,
+          "explanation": "Svelte's reactivity system automatically updates the DOM when data changes."
+        },
+        {
+          "id": "red4",
+          "questionText": "How do you listen for changes to a store in Svelte?",
+          "options": [
+            "Using $store syntax",
+            "Using subscribe()",
+            "Using useEffect()",
+            "Using watch()"
+          ],
+          "correctIndex": 1,
+          "explanation": "You listen for changes to a store in Svelte using the subscribe() method."
+        },
+        {
+          "id": "red5",
+          "questionText": "Which Svelte store is best for sharing state globally?",
+          "options": [
+            "Writable store",
+            "Readable store",
+            "Derived store",
+            "All of the above"
+          ],
+          "correctIndex": 3,
+          "explanation": "Writable, readable, and derived stores can all be used for global state sharing in Svelte."
+        }
+      ]
+    }
+  ]
+}

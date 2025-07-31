@@ -13,6 +13,8 @@ type Question = {
 type Chapter = {
   id: string;
   title: string;
+  resourceUrl?: string;
+  gitHubNotes?: string; // <-- optional
   questions: Question[];
 };
 

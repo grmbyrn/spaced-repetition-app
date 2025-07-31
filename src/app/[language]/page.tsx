@@ -1,14 +1,9 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import rustData from "@/../data/rust.json";
-import svelteData from "@/../data/svelte.json";
-import { use } from 'react';
-
-const languageData: Record<string, typeof rustData> = {
-  rust: rustData,
-  svelte: svelteData,
-};
+import { use } from "react";
+import { languageData } from "@/lib/languageData";
+import type { Chapter, LanguageJson } from "@/types/language";
 
 function useUnlockedChapters(language: string) {
   const key = `unlockedChapters_${language}`;
@@ -21,7 +16,7 @@ function useUnlockedChapters(language: string) {
     const firstChapterId = languageData[language].chapters[0]?.id;
     if (firstChapterId && !unlockedChapters.includes(firstChapterId)) {
       unlockedChapters = [firstChapterId, ...unlockedChapters];
-      localStorage.setItem(key, JSON.stringify(unlockedChapters)); // persist!
+      localStorage.setItem(key, JSON.stringify(unlockedChapters));
     }
     setUnlocked(unlockedChapters);
   }, [key, language]);
@@ -39,7 +34,7 @@ function useUnlockedChapters(language: string) {
 
 export default function LanguagePage({ params }: { params: Promise<{ language: string }> }) {
   const { language } = use(params);
-  const data = languageData[language];
+  const data: LanguageJson = languageData[language];
   const { unlocked, unlock } = useUnlockedChapters(language);
   const [showPopup, setShowPopup] = useState(false);
   const [pendingChapter, setPendingChapter] = useState<string | null>(null);
@@ -83,14 +78,14 @@ export default function LanguagePage({ params }: { params: Promise<{ language: s
             </Link>
           </li>
           {/* Other chapters */}
-          {data.chapters.map((chapter) => {
+          {data.chapters.map((chapter: Chapter) => {
             const isUnlocked = unlocked.includes(chapter.id);
             return (
               <li key={chapter.id}>
                 {isUnlocked ? (
                   <Link
                     href={`/session?language=${language}&chapter=${chapter.id}`}
-                    className={`block px-6 py-4 rounded-lg shadow text-lg font-medium text-center bg-green-50 text-green-700 hover:bg-green-100 hover:scale-105 transition-all duration-200`}
+                    className="block px-6 py-4 rounded-lg shadow text-lg font-medium text-center bg-green-50 text-green-700 hover:bg-green-100 hover:scale-105 transition-all duration-200"
                   >
                     {chapter.title}
                   </Link>
