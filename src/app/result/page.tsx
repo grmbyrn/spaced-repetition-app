@@ -1,12 +1,27 @@
 "use client";
+import { useEffect } from "react";
 import { useQuizStore } from "@/store/quizStore";
 import Link from "next/link";
 import { languageData } from "@/lib/languageData";
 import type { Chapter, LanguageJson } from "@/types/language";
 import Chatbot from "@/components/Chatbot";
 
+function markQuizCompletedToday() {
+  const today = new Date().toISOString().slice(0, 10); // "YYYY-MM-DD"
+  const stored = localStorage.getItem("completedDays");
+  const completedDays = stored ? JSON.parse(stored) : [];
+  if (!completedDays.includes(today)) {
+    completedDays.push(today);
+    localStorage.setItem("completedDays", JSON.stringify(completedDays));
+  }
+}
+
 export default function ResultPage() {
   const { session, review } = useQuizStore();
+
+  useEffect(() => {
+    markQuizCompletedToday();
+  }, []);
 
   if (!session) return <div>No session found.</div>;
 
