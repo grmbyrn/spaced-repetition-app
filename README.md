@@ -158,7 +158,7 @@ export default function Home() {
 
 As an extra resource, comprehensive Rust Notes are available to help users understand key concepts such as ownership, memory management (stack vs. heap), and traits like Drop, Clone, and Copy. These notes are especially useful when reviewing Rust quizzes or deepening your knowledge of the language.
 
-📘 Access the Rust Notes: [Rust Notes](https://github.com/grmbyrn/rust-notes) _(update link if needed)_
+📘 Access the Rust Notes: [Rust Notes](https://github.com/grmbyrn/rust-notes)
 
 ---
 
