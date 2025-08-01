@@ -72,12 +72,12 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
    {
      "language": "Your Language",
      "title": "Your Title",
-     "resourceUrl": "link to resource, eg: YouTube video, docs, etc...", // optional,
-     "gitHubNotes": "link to GitHub notes", // optional
      "chapters": [
        {
          "id": "Unique Chapter id",
          "title": "Chapter 1",
+         "resourceUrl": "link to resource, eg: YouTube video, docs, etc...", // optional,
+         "gitHubNotes": "link to GitHub notes", // optional
          "questions": [
           {
             "id": "unique-question-id",

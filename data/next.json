@@ -69,6 +69,234 @@
           "explanation": "Next.js automatically maps files in the `pages/` directory to routes."
         }
       ]
+    },
+    {
+      "id": "next-hello-world",
+      "title": "Hello World",
+      "resourceUrl": "https://www.youtube.com/watch?v=xiSuX0f1mEI&list=PLC3y8-rFHvwhIEc4I4YsRz5C7GOBnxSJY&index=3&ab_channel=Codevolution",
+      "gitHubNotes": "",
+      "questions": [
+        {
+          "id": "next-hello-world-q01",
+          "questionText": "What is the minimum Node.js version required to use the latest version of Next.js?",
+          "options": [
+            "16.0",
+            "18.18",
+            "14.15",
+            "20.0"
+          ],
+          "correctIndex": 1,
+          "explanation": "Next.js requires Node.js version 18.18 or later."
+        },
+        {
+          "id": "next-hello-world-q02",
+          "questionText": "What command is used to create a new Next.js application?",
+          "options": [
+            "npm init next-app",
+            "npx create-next-app@latest",
+            "yarn create next-app",
+            "next new"
+          ],
+          "correctIndex": 1,
+          "explanation": "`npx create-next-app@latest` is the recommended way to scaffold a Next.js project."
+        },
+        {
+          "id": "next-hello-world-q03",
+          "questionText": "Which configuration options were selected in the video setup?",
+          "options": [
+            "TypeScript, ESLint, Tailwind CSS",
+            "JavaScript, Bootstrap, Prettier",
+            "TypeScript, CSS Modules, ESLint",
+            "JavaScript, ESLint, Styled Components"
+          ],
+          "correctIndex": 0,
+          "explanation": "The setup included TypeScript, ESLint, and Tailwind CSS."
+        },
+        {
+          "id": "next-hello-world-q04",
+          "questionText": "Which command is used to start the Next.js development server?",
+          "options": [
+            "npm dev",
+            "npm run dev",
+            "npm start",
+            "next serve"
+          ],
+          "correctIndex": 1,
+          "explanation": "`npm run dev` runs the development server on localhost:3000."
+        },
+        {
+          "id": "next-hello-world-q05",
+          "questionText": "Which file should you edit to update the homepage content?",
+          "options": [
+            "index.html",
+            "src/app/page.tsx",
+            "src/pages/index.tsx",
+            "main.tsx"
+          ],
+          "correctIndex": 1,
+          "explanation": "In the App Router setup, `src/app/page.tsx` is the main entry for the homepage."
+        }
+      ]
+    },
+    {
+      "id": "next-project-structure",
+      "title": "Next.js Project Structure",
+      "resourceUrl": "https://www.youtube.com/watch?v=L0g87N0piT0",
+      "gitHubNotes": "",
+      "questions": [
+        {
+          "id": "next-project-structure-q01",
+          "questionText": "What file defines project dependencies and scripts in a Next.js project?",
+          "options": [
+            "tsconfig.json",
+            "next.config.js",
+            "package.json",
+            "README.md"
+          ],
+          "correctIndex": 2,
+          "explanation": "`package.json` defines all project dependencies and npm/yarn scripts."
+        },
+        {
+          "id": "next-project-structure-q02",
+          "questionText": "Which folder is created when you run `npm run dev` or `npm run build`?",
+          "options": [
+            "public",
+            "node_modules",
+            ".next",
+            "app"
+          ],
+          "correctIndex": 2,
+          "explanation": "The `.next` folder is created to serve and build the Next.js application."
+        },
+        {
+          "id": "next-project-structure-q03",
+          "questionText": "Where should static assets like images and SVGs be placed?",
+          "options": [
+            "src/assets",
+            "public",
+            ".next",
+            "node_modules"
+          ],
+          "correctIndex": 1,
+          "explanation": "The `public` folder is meant for static assets accessible via the browser."
+        },
+        {
+          "id": "next-project-structure-q04",
+          "questionText": "Which folder contains the main routing logic in the App Router architecture?",
+          "options": [
+            "node_modules",
+            "pages",
+            "src",
+            "app"
+          ],
+          "correctIndex": 3,
+          "explanation": "In the App Router structure, routing is handled in the `app` folder inside `src`."
+        },
+        {
+          "id": "next-project-structure-q05",
+          "questionText": "Which file defines global CSS for the application?",
+          "options": [
+            "layout.tsx",
+            "page.tsx",
+            "global.css",
+            "tailwind.config.js"
+          ],
+          "correctIndex": 2,
+          "explanation": "`global.css` contains styles that apply across the entire Next.js app."
+        },
+        {
+          "id": "next-project-structure-q06",
+          "questionText": "What is the role of `layout.tsx` in the App Router?",
+          "options": [
+            "It handles navigation",
+            "It acts as a wrapper for shared layout elements",
+            "It defines global fonts",
+            "It renders the static assets"
+          ],
+          "correctIndex": 1,
+          "explanation": "`layout.tsx` provides a shared layout for all routes using the `children` prop."
+        },
+        {
+          "id": "next-project-structure-q07",
+          "questionText": "What command begins the rendering flow starting from layout to page components?",
+          "options": [
+            "npm start",
+            "npm install",
+            "npm run dev",
+            "npm run build"
+          ],
+          "correctIndex": 2,
+          "explanation": "`npm run dev` starts the development server and renders the layout and page."
+        }
+      ]
+    },
+    {
+      "id": "before-we-start",
+      "title": "Understanding Server and Client Components",
+      "resourceUrl": "https://www.youtube.com/watch?v=7DC3ZrxvUUU&list=PLC3y8-rFHvwhIEc4I4YsRz5C7GOBnxSJY&index=4&ab_channel=Codevolution",
+      "gitHubNotes": "",
+      "questions": [
+        {
+          "id": "before-we-start-q01",
+          "questionText": "What are the two types of components in the React Server Components architecture?",
+          "options": [
+            "Static and Dynamic Components",
+            "Class and Functional Components",
+            "Server and Client Components",
+            "Public and Private Components"
+          ],
+          "correctIndex": 2,
+          "explanation": "React Server Components architecture separates components into Server and Client components."
+        },
+        {
+          "id": "before-we-start-q02",
+          "questionText": "By default, how does Next.js treat components?",
+          "options": [
+            "As client components",
+            "As static pages",
+            "As server components",
+            "As middleware handlers"
+          ],
+          "correctIndex": 2,
+          "explanation": "Next.js treats all components as server components by default."
+        },
+        {
+          "id": "before-we-start-q03",
+          "questionText": "What can server components do that client components cannot?",
+          "options": [
+            "Use React hooks",
+            "Handle user interactions",
+            "Access localStorage",
+            "Read files or fetch data from a database"
+          ],
+          "correctIndex": 3,
+          "explanation": "Server components can perform server-side tasks like reading files or accessing databases."
+        },
+        {
+          "id": "before-we-start-q04",
+          "questionText": "Which directive must be added to a file to define it as a client component?",
+          "options": [
+            "\"enable client\"",
+            "\"client: true\"",
+            "\"use client\"",
+            "\"client only\""
+          ],
+          "correctIndex": 2,
+          "explanation": "The `\"use client\"` directive must be placed at the top of a file to make it a client component."
+        },
+        {
+          "id": "before-we-start-q05",
+          "questionText": "Which of the following is a feature of client components?",
+          "options": [
+            "They can read server files",
+            "They can use React hooks",
+            "They can perform SQL queries",
+            "They can run only during SSR"
+          ],
+          "correctIndex": 1,
+          "explanation": "Client components can use React hooks and handle user interactions."
+        }
+      ]
     }
   ]
 }
