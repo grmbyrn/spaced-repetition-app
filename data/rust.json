@@ -507,8 +507,10 @@
       ]
     },
     {
-      "id": "ownership-and-borrowing",
-      "title": "Ownership, Borrowing, and References in Rust",
+      "id": "references-and-borrowing",
+      "title": "References and Borrowing in Rust",
+      "resourceUrl": "https://www.youtube.com/watch?v=Q_0yoX07Fhs&list=PLPoSdR46FgI412aItyJhj2bF66cudB6Qs&index=7&ab_channel=FrancescoCiulla",
+      "gitHubNotes": "https://github.com/grmbyrn/rust-notes/blob/main/src/lessons/lesson07.rs",
       "questions": [
         {
           "id": "rust7a",

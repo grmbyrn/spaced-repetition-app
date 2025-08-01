@@ -71,28 +71,26 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
    ```json
    {
      "language": "Your Language",
-     "title": "Your Title"
+     "title": "Your Title",
+     "resourceUrl": "link to resource, eg: YouTube video, docs, etc...", // optional,
+     "gitHubNotes": "link to GitHub notes", // optional
      "chapters": [
        {
-         "id": "Unique Chapter id"
+         "id": "Unique Chapter id",
          "title": "Chapter 1",
-         "resourceUrl": "link to resource, eg: YouTube video, docs, etc..." // optional,
-         "gitHubNotes": "link to GitHub notes" // optional
          "questions": [
-           {
-             "id": "unique question id"
-             "question": "What is X?",
-             "answer": "X is a concept."
-             "options": [
-               "Option A",
-               "Option B",
-               "Option C",
-               "Option D"
-             ],
-             "correctIndex": 1, // change depending on which option is correct
-             "explanation": "Brief explanation for why answer is correct"
-           }
-         ]
+          {
+            "id": "unique-question-id",
+            "questionText": "What is X?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+          "correctIndex": 0, // change depending on which option is correct
+            "explanation": "Brief explanation for why answer is correct"
+          }
        }
      ]
    }

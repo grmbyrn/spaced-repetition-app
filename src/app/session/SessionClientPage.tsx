@@ -104,7 +104,7 @@ export default function SessionPage() {
   };
 
   return (
-    <main className="p-8">
+    <main className="p-8 w-full max-w-2xl mx-auto">
       <h2 className="text-lg font-bold mb-2">
         {isReview
           ? `${data.title} Review`

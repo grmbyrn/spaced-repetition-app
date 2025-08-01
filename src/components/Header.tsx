@@ -8,7 +8,7 @@ export default function Header() {
         href="/"
         className="text-xl font-bold text-blue-700 hover:underline"
       >
-        Total Recall
+        Eternal Recall
       </Link>
     </header>
   );

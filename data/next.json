@@ -1,0 +1,74 @@
+{
+  "language": "next",
+  "title": "Next.js 15 Tutorial",
+  "chapters": [
+    {
+      "id": "next-introduction",
+      "title": "Introduction",
+      "resourceUrl": "https://www.youtube.com/watch?v=b4ba60j_4o8&list=PLC3y8-rFHvwhIEc4I4YsRz5C7GOBnxSJY&index=1&ab_channel=Codevolution",
+      "gitHubNotes": "",
+      "questions": [
+        {
+          "id": "next-intro-q01",
+          "questionText": "What is Next.js?",
+          "options": [
+            "A backend database framework",
+            "A CSS preprocessor",
+            "A React framework for full stack applications",
+            "A JavaScript testing library"
+          ],
+          "correctIndex": 2,
+          "explanation": "Next.js builds on React and provides routing, data fetching, and rendering features out of the box."
+        },
+        {
+          "id": "next-intro-q02",
+          "questionText": "Which of the following is NOT a feature provided by Next.js?",
+          "options": [
+            "API routes",
+            "Routing system",
+            "Server-side rendering",
+            "Built-in database management"
+          ],
+          "correctIndex": 3,
+          "explanation": "Next.js does not include built-in database features; it focuses on the front-end and API layer."
+        },
+        {
+          "id": "next-intro-q03",
+          "questionText": "Why is Next.js considered easier for building production apps compared to React alone?",
+          "options": [
+            "It uses TypeScript only",
+            "It replaces JavaScript",
+            "It includes built-in database support",
+            "It includes routing, data fetching, and optimized rendering"
+          ],
+          "correctIndex": 3,
+          "explanation": "Next.js eliminates the need for manual setup of routing and data fetching, simplifying full stack development."
+        },
+        {
+          "id": "next-intro-q04",
+          "questionText": "What is the prerequisite knowledge for learning Next.js effectively?",
+          "options": [
+            "Only HTML and CSS",
+            "Only backend programming",
+            "HTML, CSS, modern JavaScript, and React fundamentals",
+            "No prerequisites needed"
+          ],
+          "correctIndex": 2,
+          "explanation": "Next.js builds on top of React, so a working understanding of React and JS fundamentals is required."
+        },
+        {
+          "id": "next-intro-q05",
+          "questionText": "How does routing work in Next.js?",
+          "options": [
+            "You configure routes in a JSON file",
+            "You write custom routing logic in JavaScript",
+            "You use third-party routing packages",
+            "You create files, and routes are generated automatically"
+          ],
+          "correctIndex": 3,
+          "explanation": "Next.js automatically maps files in the `pages/` directory to routes."
+        }
+      ]
+    }
+  ]
+}
