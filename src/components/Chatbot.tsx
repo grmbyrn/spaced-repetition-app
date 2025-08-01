@@ -39,22 +39,24 @@ export default function Chatbot() {
           ))}
         </div>
       )}
-      <div className="flex gap-2">
-        <input
-          className="border rounded px-2 py-1 flex-1"
+      <div className="flex gap-2 items-end">
+        <textarea
+          className="border rounded px-2 py-1 flex-1 resize-y min-h-[40px] max-h-40"
           value={input}
           onChange={e => setInput(e.target.value)}
           placeholder="Type your question..."
           onKeyDown={e => {
-            if (e.key === "Enter" && !loading) {
+            if (e.key === "Enter" && !e.shiftKey && !loading) {
+              e.preventDefault();
               sendMessage();
             }
           }}
         />
         <button
-          className="bg-blue-600 text-white px-4 py-1 rounded"
+          className="bg-blue-600 text-white px-4 py-2 rounded self-end"
           onClick={sendMessage}
           disabled={loading}
+          style={{ height: "40px" }} // optional: ensures consistent button height
         >
           Send
         </button>

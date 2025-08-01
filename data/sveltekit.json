@@ -3,69 +3,138 @@
   "title": "SvelteKit Fundamentals",
   "chapters": [
     {
-      "id": "reactivity",
-      "title": "SvelteKit Reactivity",
-      "resourceUrl": "",
+      "id": "introduction",
+      "title": "SvelteKit Introduction",
+      "resourceUrl": "https://svelte.dev/docs/kit/introduction",
+      "gitHubNotes": "",
       "questions": [
         {
-          "id": "red1",
-          "questionText": "What does the $: label do in Svelte?",
+          "id": "sk-introduction-q01",
+          "questionText": "What is SvelteKit?",
           "options": [
-            "Declares a global variable",
-            "Marks a reactive statement",
-            "Imports a module",
-            "Defines a function"
+            "A JavaScript compiler",
+            "A backend framework for APIs",
+            "An application framework for building web apps with Svelte",
+            "A CSS preprocessor"
+          ],
+          "correctIndex": 2,
+          "explanation": "SvelteKit is an application framework for building web applications using Svelte."
+        },
+        {
+          "id": "sk-introduction-q02",
+          "questionText": "Which of the following best describes SvelteKit’s approach to rendering?",
+          "options": [
+            "It only supports client-side rendering",
+            "It only supports server-side rendering",
+            "It supports multiple rendering modes including SSR, CSR, and static site generation",
+            "It renders pages using WebAssembly only"
+          ],
+          "correctIndex": 2,
+          "explanation": "SvelteKit supports SSR (Server-side Rendering), CSR (Client-side Rendering), and SSG (Static Site Generation)."
+        },
+        {
+          "id": "sk-introduction-q03",
+          "questionText": "Which routing approach does SvelteKit use?",
+          "options": [
+            "Config-based routing",
+            "File-based routing",
+            "Component tree routing",
+            "URL rewriting"
           ],
           "correctIndex": 1,
-          "explanation": "The $: label marks a reactive statement, which updates when its dependencies change."
+          "explanation": "SvelteKit uses file-based routing, where the structure of the `src/routes` directory defines the app’s routes."
         },
         {
-          "id": "red2",
-          "questionText": "How do you create a reactive derived value in Svelte?",
+          "id": "sk-introduction-q04",
+          "questionText": "What is the primary benefit of using SvelteKit over vanilla Svelte?",
           "options": [
-            "Using $: derived = a + b",
-            "Using useMemo()",
-            "Using computed property",
-            "Using @derived decorator"
-          ],
-          "correctIndex": 0,
-          "explanation": "You use $: derived = a + b to create a reactive derived value in Svelte."
-        },
-        {
-          "id": "red3",
-          "questionText": "Which Svelte feature automatically updates the DOM when data changes?",
-          "options": [
-            "Reactivity",
-            "Slots",
-            "Transitions",
-            "Stores"
-          ],
-          "correctIndex": 0,
-          "explanation": "Svelte's reactivity system automatically updates the DOM when data changes."
-        },
-        {
-          "id": "red4",
-          "questionText": "How do you listen for changes to a store in Svelte?",
-          "options": [
-            "Using $store syntax",
-            "Using subscribe()",
-            "Using useEffect()",
-            "Using watch()"
+            "It provides a standard way to write styles",
+            "It enhances Svelte apps with routing, SSR, and optimized builds",
+            "It compiles code faster",
+            "It uses TypeScript by default"
           ],
           "correctIndex": 1,
-          "explanation": "You listen for changes to a store in Svelte using the subscribe() method."
+          "explanation": "SvelteKit builds on top of Svelte to provide routing, rendering strategies, and build optimizations."
         },
         {
-          "id": "red5",
-          "questionText": "Which Svelte store is best for sharing state globally?",
+          "id": "sk-introduction-q05",
+          "questionText": "Which folder in a SvelteKit project is responsible for defining routes?",
           "options": [
-            "Writable store",
-            "Readable store",
-            "Derived store",
-            "All of the above"
+            "src/components",
+            "src/routes",
+            "pages",
+            "routes"
+          ],
+          "correctIndex": 1,
+          "explanation": "The `src/routes` folder defines all application routes in SvelteKit."
+        }
+      ]
+    },
+    {
+      "id": "creating-a-project",
+      "title": "Creating a Project",
+      "resourceUrl": "https://svelte.dev/docs/kit/creating-a-project",
+      "gitHubNotes": "",
+      "questions": [
+        {
+          "id": "sk-creating-a-project-q01",
+          "questionText": "Which command is used to create a new SvelteKit project?",
+          "options": [
+            "npx create-svelte@latest",
+            "npm init svelte",
+            "npm create svelte@latest",
+            "npx svelte init"
+          ],
+          "correctIndex": 2,
+          "explanation": "You create a new SvelteKit project using `npm create svelte@latest`."
+        },
+        {
+          "id": "sk-creating-a-project-q02",
+          "questionText": "What does the SvelteKit project creation wizard help you configure?",
+          "options": [
+            "Only CSS frameworks",
+            "Only deployment options",
+            "Project name and UI framework",
+            "TypeScript, ESLint, Prettier, Playwright, and Vitest"
           ],
           "correctIndex": 3,
-          "explanation": "Writable, readable, and derived stores can all be used for global state sharing in Svelte."
+          "explanation": "The wizard lets you configure tools like TypeScript, ESLint, Prettier, Playwright, and Vitest."
+        },
+        {
+          "id": "sk-creating-a-project-q03",
+          "questionText": "What is the next step after selecting configuration options when creating a project?",
+          "options": [
+            "Build the project",
+            "Push to GitHub",
+            "Install dependencies",
+            "Run the tests"
+          ],
+          "correctIndex": 2,
+          "explanation": "After choosing options, you must install dependencies with `npm install`."
+        },
+        {
+          "id": "sk-creating-a-project-q04",
+          "questionText": "Which command is used to start the development server?",
+          "options": [
+            "npm start",
+            "npm dev",
+            "npm run dev",
+            "npx svelte serve"
+          ],
+          "correctIndex": 2,
+          "explanation": "To start the dev server, use `npm run dev`."
+        },
+        {
+          "id": "sk-creating-a-project-q05",
+          "questionText": "What does the development server provide by default?",
+          "options": [
+            "Hot module replacement and live reload",
+            "Production builds only",
+            "Server-side rendering only",
+            "Automated deployment"
+          ],
+          "correctIndex": 0,
+          "explanation": "The dev server supports HMR (Hot Module Replacement) and live reload for fast feedback."
         }
       ]
     }
