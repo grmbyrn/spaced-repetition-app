@@ -28,13 +28,26 @@ function getMonthDays(year: number, month: number) {
 }
 
 function getStreakDays(completedDays: string[]) {
+  const today = getToday();
+
+  // If today is completed, start from today; else, start from yesterday
+  const current = completedDays.includes(today)
+    ? new Date(today)
+    : (() => {
+        const d = new Date(today);
+        d.setDate(d.getDate() - 1);
+        return d;
+      })();
+
   const streakDays: string[] = [];
-  let day = getToday();
-  while (completedDays.includes(day)) {
-    streakDays.push(day);
-    const previous = new Date(day);
-    previous.setDate(previous.getDate() - 1);
-    day = formatDate(previous);
+  while (true) {
+    const dayStr = formatDate(current);
+    if (completedDays.includes(dayStr)) {
+      streakDays.push(dayStr);
+      current.setDate(current.getDate() - 1);
+    } else {
+      break;
+    }
   }
   return streakDays;
 }
