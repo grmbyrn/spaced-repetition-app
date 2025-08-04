@@ -633,6 +633,110 @@
           "explanation": "Rust uses lifetimes and scope analysis at compile time to ensure that references don’t outlive the data they point to, preventing dangling references."
         }
       ]
+    },
+    {
+      "id": "slice-in-rust",
+      "title": "Slices in Rust",
+      "resourceUrl": "https://www.youtube.com/watch?v=dKymZbFp0ZQ&list=PLPoSdR46FgI412aItyJhj2bF66cudB6Qs&index=8&ab_channel=FrancescoCiulla",
+      "gitHubNotes": "https://github.com/grmbyrn/rust-notes/blob/main/src/lessons/lesson08.rs",
+      "questions": [
+        {
+          "id": "slice-in-rust-q01",
+          "questionText": "What is a slice in Rust?",
+          "options": [
+            "A view into part of a collection without owning it",
+            "A fixed-size array that owns its data",
+            "A mutable pointer to the heap",
+            "A reference that copies the original data"
+          ],
+          "correctIndex": 0,
+          "explanation": "A slice is a reference to a contiguous sequence of elements in a collection; it doesn’t own the data."
+        },
+        {
+          "id": "slice-in-rust-q02",
+          "questionText": "Why are slices considered memory efficient in Rust?",
+          "options": [
+            "They are stored on the heap",
+            "They are compiled into machine code",
+            "They do not store data themselves, only references",
+            "They compress data at runtime"
+          ],
+          "correctIndex": 2,
+          "explanation": "Slices only store a pointer and length, making them lightweight and efficient."
+        },
+        {
+          "id": "slice-in-rust-q03",
+          "questionText": "What does the range syntax `[1..4]` return when slicing a collection?",
+          "options": [
+            "Elements at indices 1 through 4, inclusive",
+            "Elements at indices 0 through 3",
+            "Elements at indices 1, 2, and 3",
+            "Elements starting at index 4"
+          ],
+          "correctIndex": 2,
+          "explanation": "`[1..4]` includes elements starting at index 1 up to, but not including, index 4."
+        },
+        {
+          "id": "slice-in-rust-q04",
+          "questionText": "What will happen if you try to mutate a collection after taking an immutable slice of it?",
+          "options": [
+            "Rust will allow it and apply the changes to both",
+            "Rust will panic at runtime",
+            "Rust will give a compile-time borrow checker error",
+            "Rust will silently clone the data"
+          ],
+          "correctIndex": 2,
+          "explanation": "Rust enforces strict borrowing rules: you can't mutate while an immutable reference exists."
+        },
+        {
+          "id": "slice-in-rust-q05",
+          "questionText": "What is the type of a string literal like `\"hello\"` in Rust?",
+          "options": [
+            "String",
+            "&str",
+            "char",
+            "Vec<char>"
+          ],
+          "correctIndex": 1,
+          "explanation": "String literals are string slices (`&str`) that are statically allocated."
+        },
+        {
+          "id": "slice-in-rust-q06",
+          "questionText": "Why is it generally better to use `&str` instead of `&String` in function parameters?",
+          "options": [
+            "`&str` avoids ownership issues",
+            "`&str` works with both `String` and string literals",
+            "`&String` requires heap allocation",
+            "`&String` is deprecated"
+          ],
+          "correctIndex": 1,
+          "explanation": "`&str` is more flexible because it can accept both owned strings and string literals via deref coercion."
+        },
+        {
+          "id": "slice-in-rust-q07",
+          "questionText": "What does the slice syntax `[4..]` return?",
+          "options": [
+            "The first four elements",
+            "Elements from index 0 to 4 inclusive",
+            "Elements from index 4 to the end",
+            "A mutable reference to index 4"
+          ],
+          "correctIndex": 2,
+          "explanation": "`[4..]` is a slice starting from index 4 to the end of the collection."
+        },
+        {
+          "id": "slice-in-rust-q08",
+          "questionText": "What does the Rust compiler do when conflicting borrows occur (e.g., immutable and mutable)?",
+          "options": [
+            "Allows the operation but warns",
+            "Crashes at runtime",
+            "Issues a compile-time error",
+            "Silently clones the data"
+          ],
+          "correctIndex": 2,
+          "explanation": "Rust enforces borrowing rules at compile time to prevent data races and invalid memory access."
+        }
+      ]
     }
   ]
 }
