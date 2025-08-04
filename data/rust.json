@@ -737,6 +737,120 @@
           "explanation": "Rust enforces borrowing rules at compile time to prevent data races and invalid memory access."
         }
       ]
+    },
+    {
+      "id": "structs-in-rust",
+      "title": "Rust Structs Basics",
+      "questions": [
+        {
+          "id": "structs-in-rust-q01",
+          "questionText": "What is a struct in Rust primarily used for?",
+          "options": [
+            "To define a single number with precision",
+            "To group multiple values with different types using named fields",
+            "To execute asynchronous tasks",
+            "To define custom error handlers"
+          ],
+          "correctIndex": 1,
+          "explanation": "Structs are used to group multiple values with different types under named fields, creating custom data types."
+        },
+        {
+          "id": "structs-in-rust-q02",
+          "questionText": "How are structs different from tuples in Rust?",
+          "options": [
+            "Structs are less memory efficient than tuples",
+            "Tuples require named fields, structs don’t",
+            "Structs have named fields, while tuples do not",
+            "There is no difference"
+          ],
+          "correctIndex": 2,
+          "explanation": "Structs have named fields which improve readability, whereas tuples use positional indexing."
+        },
+        {
+          "id": "structs-in-rust-q03",
+          "questionText": "What is true about the mutability of structs in Rust?",
+          "options": [
+            "Struct fields are always mutable",
+            "You can make individual fields mutable",
+            "The entire struct must be declared mutable to mutate any field",
+            "Structs can’t be made mutable"
+          ],
+          "correctIndex": 2,
+          "explanation": "You must declare the entire struct instance as mutable (`let mut`) to change any of its fields."
+        },
+        {
+          "id": "structs-in-rust-q04",
+          "questionText": "What is 'field init shorthand' in Rust?",
+          "options": [
+            "Using default values in structs",
+            "Using the same name for parameter and field to skip repetition",
+            "Skipping data types in struct definition",
+            "Omitting fields entirely"
+          ],
+          "correctIndex": 1,
+          "explanation": "If the field name matches the parameter name, Rust allows shorthand by just writing the field name."
+        },
+        {
+          "id": "structs-in-rust-q05",
+          "questionText": "What happens when a struct field like `email: String` is moved to a new instance?",
+          "options": [
+            "The value is cloned automatically",
+            "Ownership is transferred and the original becomes invalid",
+            "Nothing happens",
+            "Rust creates a reference by default"
+          ],
+          "correctIndex": 1,
+          "explanation": "Moving a `String` field transfers ownership. The original struct can no longer use that field unless it was cloned."
+        },
+        {
+          "id": "structs-in-rust-q06",
+          "questionText": "What is the purpose of tuple structs in Rust?",
+          "options": [
+            "To enable inheritance between structs",
+            "To define multiple values with types but no field names",
+            "To group values under a common enum",
+            "To define multi-threaded collections"
+          ],
+          "correctIndex": 1,
+          "explanation": "Tuple structs look like tuples but are defined with the `struct` keyword and give meaning to grouped data types."
+        },
+        {
+          "id": "structs-in-rust-q07",
+          "questionText": "Why might you use a unit-like struct in Rust?",
+          "options": [
+            "To define a struct with unknown fields for now",
+            "To create a dynamic array",
+            "To store floating-point numbers",
+            "To define a numeric constant"
+          ],
+          "correctIndex": 0,
+          "explanation": "A unit-like struct has no fields and is used when you want a type with a known identity but no data—useful for markers or placeholders."
+        },
+        {
+          "id": "structs-in-rust-q08",
+          "questionText": "Which of the following describes a valid reason to use `#[derive(Debug)]` on a struct?",
+          "options": [
+            "To create new methods for the struct",
+            "To allow the struct to be printed using `println!` with `{:?}`",
+            "To avoid writing a constructor",
+            "To make all fields public by default"
+          ],
+          "correctIndex": 1,
+          "explanation": "`#[derive(Debug)]` enables formatting the struct using the `{:?}` formatter, which is helpful for debugging."
+        },
+        {
+          "id": "structs-in-rust-q09",
+          "questionText": "What does the `build_user` function pattern typically do in Rust?",
+          "options": [
+            "Parses user input from the command line",
+            "Initializes a struct, optionally with default values",
+            "Encrypts user data before storage",
+            "Clones a struct instance"
+          ],
+          "correctIndex": 1,
+          "explanation": "A `build_user` function is often used to create instances of a struct, possibly filling in default values for some fields."
+        }
+      ]
     }
   ]
 }
