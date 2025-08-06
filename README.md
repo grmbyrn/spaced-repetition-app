@@ -163,7 +163,3 @@ As an extra resource, comprehensive Rust Notes are available to help users under
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-If you'd like, I can also generate a ready-to-commit README.md file for you. Would you want that?

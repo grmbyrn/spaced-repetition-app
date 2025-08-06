@@ -740,7 +740,9 @@
     },
     {
       "id": "structs-in-rust",
-      "title": "Rust Structs Basics",
+      "title": "Structs in Rust",
+      "resourceUrl": "https://www.youtube.com/watch?v=PCjuO-Bv5FI&list=PLPoSdR46FgI412aItyJhj2bF66cudB6Qs&index=9&ab_channel=FrancescoCiulla",
+      "gitHubNotes": "https://github.com/grmbyrn/rust-notes/blob/main/src/lessons/lesson09.rs",
       "questions": [
         {
           "id": "structs-in-rust-q01",
@@ -849,6 +851,252 @@
           ],
           "correctIndex": 1,
           "explanation": "A `build_user` function is often used to create instances of a struct, possibly filling in default values for some fields."
+        }
+      ]
+    },
+    {
+      "id": "structs-example",
+      "title": "Using Structs to Improve Code Clarity",
+      "resourceUrl": "https://www.youtube.com/watch?v=mgK5LezkHl8&list=PLPoSdR46FgI412aItyJhj2bF66cudB6Qs&index=10&ab_channel=FrancescoCiulla",
+      "gitHubNotes": "https://github.com/grmbyrn/rust-notes/blob/main/src/lessons/lesson10.rs",
+      "questions": [
+        {
+          "id": "structs-example-01",
+          "questionText": "What is a major drawback of using separate variables (e.g., `width`, `height`) to represent a rectangle?",
+          "options": [
+            "Rust does not support multiple variables in a function.",
+            "It is easier to make mistakes by mixing up values.",
+            "Separate variables cannot be used in calculations.",
+            "Functions cannot accept more than one parameter."
+          ],
+          "correctIndex": 1,
+          "explanation": "Using separate variables can lead to bugs when passing them around or swapping them unintentionally."
+        },
+        {
+          "id": "structs-example-02",
+          "questionText": "What is one limitation of using tuples to represent a rectangle (e.g., `(30, 50)`)?",
+          "options": [
+            "Tuples cannot be passed into functions.",
+            "Tuples are slower than structs.",
+            "Tuple fields don’t have names, reducing code clarity.",
+            "Tuples cannot hold integers."
+          ],
+          "correctIndex": 2,
+          "explanation": "Tuples don’t have named fields, making it hard to understand which value represents what."
+        },
+        {
+          "id": "structs-example-03",
+          "questionText": "What is one primary advantage of using a struct to represent a rectangle?",
+          "options": [
+            "Structs run faster than functions.",
+            "Structs remove the need for types.",
+            "Structs allow named fields, making code easier to read and maintain.",
+            "Structs cannot be passed by reference."
+          ],
+          "correctIndex": 2,
+          "explanation": "Structs provide clarity through named fields like `width` and `height`, making code self-documenting."
+        },
+        {
+          "id": "structs-example-04",
+          "questionText": "Why does printing a struct instance using `println!` result in a compile-time error unless a trait is added?",
+          "options": [
+            "Printing structs is only available in nightly Rust.",
+            "Structs need to be serialized before printing.",
+            "The `Debug` trait must be derived to allow formatted printing.",
+            "Rust does not support printing custom types."
+          ],
+          "correctIndex": 2,
+          "explanation": "To print structs using `println!(\"{:?}\", ...)`, you must derive the `Debug` trait using `#[derive(Debug)]`."
+        },
+        {
+          "id": "structs-example-05",
+          "questionText": "What is the purpose of using `#[derive(Debug)]` above a struct definition?",
+          "options": [
+            "It allows the struct to be stored in memory.",
+            "It gives all fields default values.",
+            "It enables the struct to be printed with debug formatting.",
+            "It marks the struct as immutable."
+          ],
+          "correctIndex": 2,
+          "explanation": "`#[derive(Debug)]` allows the struct to be printed using debug formatting in output."
+        },
+        {
+          "id": "structs-example-06",
+          "questionText": "What is the role of `&` when passing a struct to a function in Rust?",
+          "options": [
+            "It clones the struct.",
+            "It creates a new instance of the struct.",
+            "It passes the struct by reference, avoiding ownership issues.",
+            "It converts the struct to a tuple."
+          ],
+          "correctIndex": 2,
+          "explanation": "Using `&` passes the struct by reference, which avoids moving ownership and is more efficient."
+        },
+        {
+          "id": "structs-example-07",
+          "questionText": "What advantage does the named-field structure of a struct offer when working in teams?",
+          "options": [
+            "Structs compile faster than tuples.",
+            "Named fields make it easier for others to understand what each value represents.",
+            "Structs support JavaScript-like dynamic typing.",
+            "Team members can skip writing function signatures."
+          ],
+          "correctIndex": 1,
+          "explanation": "Named fields provide semantic meaning to each value, making collaboration and maintenance easier."
+        },
+        {
+          "id": "structs-example-08",
+          "questionText": "What happens if you try to print a struct with `println!` without implementing or deriving `Debug`?",
+          "options": [
+            "It prints a default placeholder.",
+            "It compiles but outputs an empty string.",
+            "It results in a compile-time error.",
+            "It automatically converts to a tuple."
+          ],
+          "correctIndex": 2,
+          "explanation": "Rust requires structs to implement the `Debug` trait in order to use `println!(\"{:?}\", ...)`."
+        },
+        {
+          "id": "structs-example-09",
+          "questionText": "Why might using structs be beneficial when modeling real-world concepts like players in a game or app settings?",
+          "options": [
+            "Structs are the only types that support integers.",
+            "Structs automatically derive traits like Clone.",
+            "Structs provide a structured, type-safe way to group related data.",
+            "Structs require less memory than other data types."
+          ],
+          "correctIndex": 2,
+          "explanation": "Structs offer a clean and type-safe way to represent complex real-world entities."
+        },
+        {
+          "id": "structs-example-10",
+          "questionText": "What Rust syntax allows you to add built-in behaviors like debug-printing or cloning to structs?",
+          "options": [
+            "impl struct {...}",
+            "#[use(debug)]",
+            "#[derive(...)]",
+            "fn derive() {...}"
+          ],
+          "correctIndex": 2,
+          "explanation": "Rust uses the `#[derive(...)]` syntax to add common traits like `Debug`, `Clone`, and `Copy` to structs."
+        }
+      ]
+    },
+    {
+      "id": "rust-methods",
+      "title": "Methods in Rust",
+      "resourceUrl": "https://www.youtube.com/watch?v=94iSHoKmPmY&list=PLPoSdR46FgI412aItyJhj2bF66cudB6Qs&index=11&ab_channel=FrancescoCiulla",
+      "gitHubNotes": "https://github.com/grmbyrn/rust-notes/blob/main/src/lessons/lesson11.rs",
+      "questions": [
+        {
+          "id": "rust-methods-q01",
+          "questionText": "What distinguishes a method from a function in Rust?",
+          "options": [
+            "A method is defined inside a struct and takes self as the first parameter.",
+            "A method is a type of macro used to manipulate struct data.",
+            "A method cannot return values, while functions can.",
+            "Methods must be private to the struct."
+          ],
+          "correctAnswerIndex": 0
+        },
+        {
+          "id": "rust-methods-q02",
+          "questionText": "What does the `&self` parameter in a method indicate?",
+          "options": [
+            "The method consumes the struct entirely.",
+            "The method takes a mutable reference to the struct.",
+            "The method takes an immutable reference to the struct.",
+            "The method copies the struct into a new instance."
+          ],
+          "correctAnswerIndex": 2
+        },
+        {
+          "id": "rust-methods-q03",
+          "questionText": "What is an associated function in Rust?",
+          "options": [
+            "A function defined inside `fn main()`.",
+            "A method that only works with mutable structs.",
+            "A function in an `impl` block that does not take `self` as the first parameter.",
+            "A trait function that must be implemented by a struct."
+          ],
+          "correctAnswerIndex": 2
+        },
+        {
+          "id": "rust-methods-q04",
+          "questionText": "Which syntax is used to call an associated function?",
+          "options": [
+            "structName.functionName()",
+            "functionName::structName()",
+            "structName::functionName()",
+            "functionName(structName)"
+          ],
+          "correctAnswerIndex": 2
+        },
+        {
+          "id": "rust-methods-q05",
+          "questionText": "Why might you define a method with the same name as a struct field?",
+          "options": [
+            "To override the field and hide its value.",
+            "To make a getter method that can access private fields.",
+            "To enable destructuring of the struct.",
+            "To improve performance by inlining the field."
+          ],
+          "correctAnswerIndex": 1
+        },
+        {
+          "id": "rust-methods-q06",
+          "questionText": "What is the purpose of the `can_hold` method in the lesson?",
+          "options": [
+            "To check if one rectangle can be cloned into another.",
+            "To compare two rectangles for exact equality.",
+            "To check if one rectangle can fit entirely inside another.",
+            "To resize a rectangle to match another."
+          ],
+          "correctAnswerIndex": 2
+        },
+        {
+          "id": "rust-methods-q07",
+          "questionText": "What is returned by the `Rectangle::square` function?",
+          "options": [
+            "A tuple representing width and height.",
+            "A new Rectangle instance with equal width and height.",
+            "A string describing the square.",
+            "A reference to a Rectangle defined elsewhere."
+          ],
+          "correctAnswerIndex": 1
+        },
+        {
+          "id": "rust-methods-q08",
+          "questionText": "Why might you use multiple `impl` blocks for a struct?",
+          "options": [
+            "To separate logic for different traits or purposes.",
+            "To reduce compilation time.",
+            "To allow parallel execution of methods.",
+            "To add support for dynamic dispatch."
+          ],
+          "correctAnswerIndex": 0
+        },
+        {
+          "id": "rust-methods-q09",
+          "questionText": "What happens if you define a method that takes `self` instead of `&self`?",
+          "options": [
+            "It takes ownership of the struct instance.",
+            "It allows direct mutation of the struct fields.",
+            "It borrows the struct immutably.",
+            "It makes the struct immutable forever."
+          ],
+          "correctAnswerIndex": 0
+        },
+        {
+          "id": "rust-methods-q10",
+          "questionText": "What kind of return value is common in getter methods?",
+          "options": [
+            "Nothing (unit type)",
+            "A string describing the field",
+            "The value of a field in the struct",
+            "A mutable reference to the whole struct"
+          ],
+          "correctAnswerIndex": 2
         }
       ]
     }
