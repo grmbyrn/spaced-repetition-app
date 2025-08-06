@@ -997,7 +997,8 @@
             "A method cannot return values, while functions can.",
             "Methods must be private to the struct."
           ],
-          "correctAnswerIndex": 0
+          "correctIndex": 0,
+          "explanation": "In Rust, methods are associated with a struct (or enum) and take `self` (or `&self` / `&mut self`) as the first parameter, allowing them to operate on instances of the type."
         },
         {
           "id": "rust-methods-q02",
@@ -1008,7 +1009,8 @@
             "The method takes an immutable reference to the struct.",
             "The method copies the struct into a new instance."
           ],
-          "correctAnswerIndex": 2
+          "correctIndex": 2,
+          "explanation": "`&self` means the method takes an immutable reference to the instance, allowing read-only access to its fields."
         },
         {
           "id": "rust-methods-q03",
@@ -1019,7 +1021,8 @@
             "A function in an `impl` block that does not take `self` as the first parameter.",
             "A trait function that must be implemented by a struct."
           ],
-          "correctAnswerIndex": 2
+          "correctIndex": 2,
+          "explanation": "An associated function is defined within an `impl` block but does not take `self`, so it's called on the type itself rather than an instance."
         },
         {
           "id": "rust-methods-q04",
@@ -1030,7 +1033,8 @@
             "structName::functionName()",
             "functionName(structName)"
           ],
-          "correctAnswerIndex": 2
+          "correctIndex": 2,
+          "explanation": "Associated functions are called using `StructName::functionName()`, since they don't operate on an instance."
         },
         {
           "id": "rust-methods-q05",
@@ -1041,7 +1045,8 @@
             "To enable destructuring of the struct.",
             "To improve performance by inlining the field."
           ],
-          "correctAnswerIndex": 1
+          "correctIndex": 1,
+          "explanation": "Rust allows private fields, so you can create a public method with the same name to expose the value through a getter."
         },
         {
           "id": "rust-methods-q06",
@@ -1052,7 +1057,8 @@
             "To check if one rectangle can fit entirely inside another.",
             "To resize a rectangle to match another."
           ],
-          "correctAnswerIndex": 2
+          "correctIndex": 2,
+          "explanation": "`can_hold` compares the dimensions of two rectangles to determine if one can fully contain the other."
         },
         {
           "id": "rust-methods-q07",
@@ -1063,7 +1069,8 @@
             "A string describing the square.",
             "A reference to a Rectangle defined elsewhere."
           ],
-          "correctAnswerIndex": 1
+          "correctIndex": 1,
+          "explanation": "`Rectangle::square` is an associated function that creates a new `Rectangle` instance where width and height are the same."
         },
         {
           "id": "rust-methods-q08",
@@ -1074,7 +1081,8 @@
             "To allow parallel execution of methods.",
             "To add support for dynamic dispatch."
           ],
-          "correctAnswerIndex": 0
+          "correctIndex": 0,
+          "explanation": "Multiple `impl` blocks help organize code by grouping methods or trait implementations separately for readability and maintainability."
         },
         {
           "id": "rust-methods-q09",
@@ -1085,7 +1093,8 @@
             "It borrows the struct immutably.",
             "It makes the struct immutable forever."
           ],
-          "correctAnswerIndex": 0
+          "correctIndex": 0,
+          "explanation": "`self` means the method takes ownership of the instance, consuming it, and it's no longer usable afterward unless returned."
         },
         {
           "id": "rust-methods-q10",
@@ -1096,7 +1105,8 @@
             "The value of a field in the struct",
             "A mutable reference to the whole struct"
           ],
-          "correctAnswerIndex": 2
+          "correctIndex": 2,
+          "explanation": "Getter methods typically return the value of a field, allowing read access even if the field itself is private."
         }
       ]
     }
