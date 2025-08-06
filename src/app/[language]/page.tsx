@@ -39,6 +39,18 @@ export default function LanguagePage({ params }: { params: Promise<{ language: s
   const [showPopup, setShowPopup] = useState(false);
   const [pendingChapter, setPendingChapter] = useState<string | null>(null);
 
+  // Pagination state
+  const [page, setPage] = useState(1);
+  const chaptersPerPage = 10;
+  const totalChapters = data.chapters.length;
+  const totalPages = Math.ceil(totalChapters / chaptersPerPage);
+
+  // Get chapters for current page
+  const paginatedChapters = data.chapters.slice(
+    (page - 1) * chaptersPerPage,
+    page * chaptersPerPage
+  );
+
   if (!data) return <div className="p-8 text-red-600 font-bold">Language not found.</div>;
 
   const handleChapterClick = (chapterId: string, isUnlocked: boolean) => {
@@ -77,8 +89,8 @@ export default function LanguagePage({ params }: { params: Promise<{ language: s
               Review (Spaced Repetition)
             </Link>
           </li>
-          {/* Other chapters */}
-          {data.chapters.map((chapter: Chapter) => {
+          {/* Paginated chapters */}
+          {paginatedChapters.map((chapter: Chapter) => {
             const isUnlocked = unlocked.includes(chapter.id);
             return (
               <li key={chapter.id}>
@@ -101,6 +113,46 @@ export default function LanguagePage({ params }: { params: Promise<{ language: s
             );
           })}
         </ul>
+        {/* Pagination controls */}
+        <div className="flex justify-center gap-2 mt-8">
+          <button
+            className="px-4 py-2 rounded bg-gray-300 text-gray-700 font-semibold disabled:opacity-50"
+            onClick={() => setPage(page - 1)}
+            disabled={page === 1}
+          >
+            Previous
+          </button>
+          {Array.from({ length: totalPages }, (_, i) => (
+            <button
+              key={i + 1}
+              className={`px-4 py-2 rounded font-semibold ${
+                page === i + 1
+                  ? "bg-blue-600 text-white"
+                  : "bg-gray-200 text-gray-700"
+              }`}
+              onClick={() => setPage(i + 1)}
+            >
+              {i + 1}
+            </button>
+          ))}
+          <button
+            className="px-4 py-2 rounded bg-gray-300 text-gray-700 font-semibold disabled:opacity-50"
+            onClick={() => setPage(page + 1)}
+            disabled={page === totalPages}
+          >
+            Next
+          </button>
+        </div>
+        {/* Back to Home button under pagination */}
+        <div className="mt-8 flex justify-center">
+          <Link
+            href="/"
+            className="px-6 py-3 rounded-lg bg-green-600 text-white font-semibold shadow hover:bg-green-700 transition-colors duration-150 text-center"
+          >
+            ⬅️ Back to Home
+          </Link>
+        </div>
+        {/* Unlock popup */}
         {showPopup && (
           <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
             <div className="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full">
@@ -125,14 +177,6 @@ export default function LanguagePage({ params }: { params: Promise<{ language: s
             </div>
           </div>
         )}
-      </div>
-      <div className="mt-8 flex justify-center">
-        <Link
-          href="/"
-          className="px-6 py-3 rounded-lg bg-green-600 text-white font-semibold shadow hover:bg-green-700 transition-colors duration-150 text-center"
-        >
-          ⬅️ Back to Home
-        </Link>
       </div>
     </main>
   );

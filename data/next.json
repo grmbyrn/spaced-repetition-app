@@ -299,7 +299,7 @@
       ]
     },
     {
-      "chapterId": "nextjs-routing",
+      "id": "nextjs-routing",
       "title": "Routing",
       "resourceUrl": "https://www.youtube.com/watch?v=9602Yzvd7ik&list=PLC3y8-rFHvwhIEc4I4YsRz5C7GOBnxSJY&index=5&pp=iAQB",
       "gitHubNotes": "",
@@ -313,7 +313,7 @@
             "Anywhere in the project",
             "Inside the 'src' folder"
           ],
-          "correctAnswerIndex": 1,
+          "correctIndex": 1,
           "explanation": "Next.js requires all routes to be placed inside the 'app' folder within the source directory to map URLs correctly."
         },
         {
@@ -325,7 +325,7 @@
             "page.js or page.tsx",
             "app.js or app.tsx"
           ],
-          "correctAnswerIndex": 2,
+          "correctIndex": 2,
           "explanation": "Route files must be named 'page.js' or 'page.tsx' depending on whether JavaScript or TypeScript is used to be recognized as pages."
         },
         {
@@ -337,7 +337,7 @@
             "Routes are configured manually in a routing file",
             "Only files in the root app folder are routes"
           ],
-          "correctAnswerIndex": 1,
+          "correctIndex": 1,
           "explanation": "Each folder inside the 'app' directory represents a segment of the URL path, allowing nested routes."
         },
         {
@@ -349,7 +349,7 @@
             "/",
             "/root"
           ],
-          "correctAnswerIndex": 2,
+          "correctIndex": 2,
           "explanation": "A 'page.tsx' file in the root 'app' folder automatically maps to the root URL '/' in Next.js."
         },
         {
@@ -361,7 +361,7 @@
             "It redirects to the homepage",
             "You must manually create a 404 page"
           ],
-          "correctAnswerIndex": 1,
+          "correctIndex": 1,
           "explanation": "Next.js automatically returns a 404 Not Found response for URLs that don’t match any route without additional code."
         },
         {
@@ -373,13 +373,13 @@
             "Routes are configured using JSON files",
             "It uses third-party routing libraries"
           ],
-          "correctAnswerIndex": 1,
+          "correctIndex": 1,
           "explanation": "Next.js favors convention over configuration by mapping file and folder structure in the 'app' folder directly to routes."
         }
       ]
     },
     {
-      "chapterId": "nextjs-nested-routes",
+      "id": "nextjs-nested-routes",
       "title": "Nested Routes",
       "resourceUrl": "https://www.youtube.com/watch?v=H7JjKjkC33c&list=PLC3y8-rFHvwhIEc4I4YsRz5C7GOBnxSJY&index=6&pp=iAQB",
       "gitHubNotes": "",
@@ -393,7 +393,7 @@
             "Anywhere in the root directory",
             "Inside the 'public' folder"
           ],
-          "correctAnswerIndex": 1,
+          "correctIndex": 1,
           "explanation": "All route folders, including 'blog', must be created inside the 'app' folder to be recognized as routes."
         },
         {
@@ -405,7 +405,7 @@
             "The '/blog/page' route",
             "It is ignored by Next.js"
           ],
-          "correctAnswerIndex": 1,
+          "correctIndex": 1,
           "explanation": "The 'page.tsx' file inside the 'blog' folder corresponds directly to the '/blog' URL route."
         },
         {
@@ -417,7 +417,7 @@
             "By adding query parameters to the blog route",
             "By configuring routes manually in a config file"
           ],
-          "correctAnswerIndex": 1,
+          "correctIndex": 1,
           "explanation": "Nested routes are created by adding folders inside the parent route folder; each folder must have its own 'page.tsx' to define that route."
         },
         {
@@ -429,7 +429,7 @@
             "An error page",
             "The page for '/blog'"
           ],
-          "correctAnswerIndex": 1,
+          "correctIndex": 1,
           "explanation": "A 'page.tsx' inside 'blog/first' corresponds exactly to the nested route '/blog/first' and renders its content."
         },
         {
@@ -441,7 +441,7 @@
             "You need to configure routes in a separate file",
             "Routes only work at the root level"
           ],
-          "correctAnswerIndex": 1,
+          "correctIndex": 1,
           "explanation": "Next.js automatically maps nested folders inside 'app' to URL paths, making nested routing simple and intuitive."
         }
       ]
@@ -461,7 +461,7 @@
             "Next.js does not allow folders for products",
             "Each product page cannot have unique content"
           ],
-          "correctAnswerIndex": 1,
+          "correctIndex": 1,
           "explanation": "Creating folders for each product is impractical for large numbers of products, making maintenance difficult."
         },
         {
@@ -473,7 +473,7 @@
             "By manually adding routes in a config file",
             "Dynamic routes are not supported"
           ],
-          "correctAnswerIndex": 0,
+          "correctIndex": 0,
           "explanation": "Folders named with square brackets indicate dynamic segments, allowing Next.js to handle routes like /products/1 or /products/abc."
         },
         {
@@ -485,7 +485,7 @@
             "routeParams",
             "query"
           ],
-          "correctAnswerIndex": 1,
+          "correctIndex": 1,
           "explanation": "The page component receives a 'params' prop containing the dynamic route parameters as key-value pairs."
         },
         {
@@ -497,7 +497,7 @@
             "const productId = await props.productId;",
             "const productId = params['productId']();"
           ],
-          "correctAnswerIndex": 0,
+          "correctIndex": 0,
           "explanation": "Because 'params' is a promise in server components, you await it to access 'productId'."
         },
         {
@@ -509,7 +509,7 @@
             "Both strings and numbers",
             "Only UUIDs"
           ],
-          "correctAnswerIndex": 2,
+          "correctIndex": 2,
           "explanation": "Dynamic segments can represent any string, including numbers or text like 'iPhone', making routes flexible."
         },
         {
@@ -521,7 +521,7 @@
             "'app/[productId]/products/page.tsx'",
             "'app/products/[productId].tsx'"
           ],
-          "correctAnswerIndex": 1,
+          "correctIndex": 1,
           "explanation": "The dynamic route uses a folder named with square brackets inside 'products' containing a 'page.tsx' file."
         }
       ]
@@ -541,7 +541,7 @@
             "Create a folder named reviews inside app and put all dynamic routes there",
             "Create a folder named [reviewId] inside products folder"
           ],
-          "correctAnswerIndex": 0,
+          "correctIndex": 0,
           "explanation": "Nested dynamic routes require nested folders: [productId] folder, then reviews folder inside it, then [reviewId] folder with page.tsx."
         },
         {
@@ -553,7 +553,7 @@
             "By accessing global state",
             "By parsing the URL manually"
           ],
-          "correctAnswerIndex": 1,
+          "correctIndex": 1,
           "explanation": "The component receives params as a promise resolving to an object containing both dynamic parameters, which you can await and destructure."
         },
         {
@@ -565,7 +565,7 @@
             "/products/reviews/1/1",
             "/reviews/1/products/1"
           ],
-          "correctAnswerIndex": 1,
+          "correctIndex": 1,
           "explanation": "The actual URL with specific IDs replaces the dynamic segments in the nested folder structure."
         },
         {
@@ -577,7 +577,7 @@
             "Improves app startup time",
             "Prevents dynamic routing"
           ],
-          "correctAnswerIndex": 0,
+          "correctIndex": 0,
           "explanation": "Nested dynamic folders enable clean, maintainable handling of multiple dynamic segments in URLs."
         },
         {
@@ -589,7 +589,7 @@
             "app/products/[reviewId]/reviews/[productId]/page.tsx",
             "app/reviews/[productId]/[reviewId]/page.tsx"
           ],
-          "correctAnswerIndex": 0,
+          "correctIndex": 0,
           "explanation": "The folder structure mirrors the URL segments with nested folders and dynamic segments in square brackets."
         }
       ]
@@ -609,7 +609,7 @@
             "Reducing client-side JavaScript bundle size",
             "Handling static routes only"
           ],
-          "correctAnswerIndex": 0,
+          "correctIndex": 0,
           "explanation": "Catchall segments let you capture multiple nested URL segments with one dynamic route, reducing the need for many files."
         },
         {
@@ -621,7 +621,7 @@
             "By creating a file named catchall.js",
             "By using a double underscore prefix, like __slug"
           ],
-          "correctAnswerIndex": 0,
+          "correctIndex": 0,
           "explanation": "Catchall segments use the special syntax [...slug] where the three dots indicate multiple dynamic segments."
         },
         {
@@ -633,7 +633,7 @@
             "A boolean indicating if the route is active",
             "An object with key-value pairs of query parameters"
           ],
-          "correctAnswerIndex": 1,
+          "correctIndex": 1,
           "explanation": "In catchall routes, params.slug is an array of strings, each representing a segment in the URL path."
         },
         {
@@ -645,7 +645,7 @@
             "You create a separate route for the base path",
             "You rename the folder to base"
           ],
-          "correctAnswerIndex": 0,
+          "correctIndex": 0,
           "explanation": "Optional catchall segments ([[...slug]]) allow matching both the base path and any nested paths."
         },
         {
@@ -657,7 +657,7 @@
             "When you want to handle only static routes",
             "When you do not want to use dynamic routing"
           ],
-          "correctAnswerIndex": 0,
+          "correctIndex": 0,
           "explanation": "Use a simple page.tsx when the UI does not change with the URL path segments; otherwise, use catchall routes."
         },
         {
@@ -669,7 +669,7 @@
             "It improves SEO by hiding URLs",
             "It prevents users from accessing undefined routes"
           ],
-          "correctAnswerIndex": 0,
+          "correctIndex": 0,
           "explanation": "Catchall routes let you cover many nested paths like feature/concept/example in one dynamic route file."
         }
       ]
@@ -689,7 +689,7 @@
             "not-found.tsx",
             "error.tsx"
           ],
-          "correctAnswerIndex": 2,
+          "correctIndex": 2,
           "explanation": "Next.js requires the custom 404 page to be named exactly 'not-found.tsx' (or .js) to replace the default 404."
         },
         {
@@ -701,7 +701,7 @@
             "Inside a '404' folder",
             "Inside the 'components' folder"
           ],
-          "correctAnswerIndex": 1,
+          "correctIndex": 1,
           "explanation": "The 'not-found.tsx' file must be inside the 'app' folder to customize the global 404 page using the app router."
         },
         {
@@ -713,7 +713,7 @@
             "By redirecting to a 404 URL",
             "By setting a state variable"
           ],
-          "correctAnswerIndex": 1,
+          "correctIndex": 1,
           "explanation": "Next.js provides a 'notFound' function from 'next/navigation' that you can call to programmatically show the 404 page."
         },
         {
@@ -725,7 +725,7 @@
             "It is ignored by Next.js",
             "It causes a build error"
           ],
-          "correctAnswerIndex": 1,
+          "correctIndex": 1,
           "explanation": "Next.js uses the most specific 'not-found.tsx' page for a route if it exists, allowing custom 404 pages per route segment."
         },
         {
@@ -737,7 +737,7 @@
             "Because 'usePathname' is a deprecated hook",
             "Because it enables static site generation"
           ],
-          "correctAnswerIndex": 0,
+          "correctIndex": 0,
           "explanation": "React hooks like 'usePathname' only work in client components, so you need 'use client' to mark the component accordingly."
         },
         {
@@ -749,7 +749,7 @@
             "It must accept a 'message' prop",
             "It requires route parameters as props"
           ],
-          "correctAnswerIndex": 0,
+          "correctIndex": 0,
           "explanation": "The 'not-found.tsx' component does not accept props; dynamic behavior should be handled using hooks like 'usePathname'."
         }
       ]
