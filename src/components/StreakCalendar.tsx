@@ -56,11 +56,32 @@ function isBeforeToday(dateStr: string): boolean {
   return new Date(dateStr) < new Date(getToday());
 }
 
+function getLongestStreak(completedDays: string[]): number {
+  if (completedDays.length === 0) return 0;
+  // Sort dates ascending
+  const sorted = [...completedDays].sort();
+  let longest = 1;
+  let current = 1;
+  for (let i = 1; i < sorted.length; i++) {
+    const prev = new Date(sorted[i - 1]);
+    const curr = new Date(sorted[i]);
+    // If consecutive day
+    if (curr.getTime() - prev.getTime() === 86400000) {
+      current++;
+      longest = Math.max(longest, current);
+    } else {
+      current = 1;
+    }
+  }
+  return longest;
+}
+
 export default function StreakCalendar() {
   const [completedDays, setCompletedDays] = useState<string[]>([]);
   const [streakDays, setStreakDays] = useState<string[]>([]);
   const [streak, setStreak] = useState(0);
   const [open, setOpen] = useState(false);
+  const [longestStreak, setLongestStreak] = useState(0);
 
   const now = new Date();
   const [displayYear, setDisplayYear] = useState(now.getFullYear());
@@ -78,6 +99,7 @@ export default function StreakCalendar() {
     const streakArr = getStreakDays(completedDays);
     setStreak(streakArr.length);
     setStreakDays(streakArr);
+    setLongestStreak(getLongestStreak(completedDays));
   }, [completedDays]);
 
   const monthDays = getMonthDays(displayYear, displayMonth);
@@ -114,6 +136,10 @@ export default function StreakCalendar() {
       <div className="mb-2 text-center">
         Current streak: <span className="font-bold">{streak}</span>{" "}
         {streak === 1 ? "day" : "days"}
+      </div>
+      <div className="mb-2 text-center text-gray-500">
+        Longest streak: <span className="font-bold">{longestStreak}</span>{" "}
+        {longestStreak === 1 ? "day" : "days"}
       </div>
       <div className="flex justify-center mb-2">
         <button

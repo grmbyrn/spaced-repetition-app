@@ -36,10 +36,13 @@ export const useQuizStore = create<StoreState>()(
     (set, get) => ({
       session: null,
       review: {},
-      startSession: (questions, language, chapterId) =>
+      startSession: (questions, language, chapterId) => {
+        // Mark quiz as unlocked
+        localStorage.setItem("unlockedQuiz", "true");
         set({
           session: { questions, currentIndex: 0, language, chapterId },
-        }),
+        });
+      },
       answerQuestion: (questionId, correct) => {
         const now = new Date().toISOString();
         const prev = get().review[questionId] || {
@@ -54,6 +57,44 @@ export const useQuizStore = create<StoreState>()(
         const interval = correct ? Math.ceil(newEase * 1) : 1;
         const nextDate = new Date();
         nextDate.setDate(nextDate.getDate() + interval);
+
+        // Mark quiz as completed if answering the last question in session
+        const session = get().session;
+        if (
+          session &&
+          session.currentIndex === session.questions.length - 1
+        ) {
+          localStorage.setItem("didQuiz", "true");
+        }
+
+        // --- Streak tracking logic ---
+        // Get today's date string (YYYY-MM-DD)
+        const todayStr = new Date().toISOString().slice(0, 10);
+        // Get completed days from localStorage
+        let completedDays: string[] = JSON.parse(localStorage.getItem("completedDays") || "[]");
+        // Add today if not already present
+        if (!completedDays.includes(todayStr)) {
+          completedDays.push(todayStr);
+          localStorage.setItem("completedDays", JSON.stringify(completedDays));
+        }
+        // Calculate current streak
+        completedDays = completedDays.sort();
+        let streak = 1;
+        let longestStreak = Number(localStorage.getItem("longestStreak") || "1");
+        for (let i = completedDays.length - 1; i > 0; i--) {
+          const prevDate = new Date(completedDays[i - 1]);
+          const currDate = new Date(completedDays[i]);
+          if (currDate.getTime() - prevDate.getTime() === 86400000) {
+            streak++;
+          } else {
+            break;
+          }
+        }
+        if (streak > longestStreak) {
+          longestStreak = streak;
+          localStorage.setItem("longestStreak", String(longestStreak));
+        }
+
         set((state) => ({
           review: {
             ...state.review,

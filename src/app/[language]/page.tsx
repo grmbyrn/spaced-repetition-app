@@ -33,8 +33,9 @@ function useUnlockedChapters(language: string) {
 }
 
 export default function LanguagePage({ params }: { params: Promise<{ language: string }> }) {
+  const [loading, setLoading] = useState(true);
+  const [data, setData] = useState<LanguageJson | null>(null);
   const { language } = use(params);
-  const data: LanguageJson = languageData[language];
   const { unlocked, unlock } = useUnlockedChapters(language);
   const [showPopup, setShowPopup] = useState(false);
   const [pendingChapter, setPendingChapter] = useState<string | null>(null);
@@ -42,16 +43,37 @@ export default function LanguagePage({ params }: { params: Promise<{ language: s
   // Pagination state
   const [page, setPage] = useState(1);
   const chaptersPerPage = 10;
-  const totalChapters = data.chapters.length;
+  const totalChapters = data?.chapters.length || 0;
   const totalPages = Math.ceil(totalChapters / chaptersPerPage);
 
   // Get chapters for current page
-  const paginatedChapters = data.chapters.slice(
+  const paginatedChapters = data?.chapters.slice(
     (page - 1) * chaptersPerPage,
     page * chaptersPerPage
-  );
+  ) || [];
 
-  if (!data) return <div className="p-8 text-red-600 font-bold">Language not found.</div>;
+  useEffect(() => {
+    async function fetchData() {
+      setLoading(true);
+      const { language } = await params;
+      setData(languageData[language]);
+      setLoading(false);
+    }
+    fetchData();
+  }, [params]);
+
+  if (loading || !data) {
+    return (
+      <main className="p-8 min-h-screen bg-gradient-to-br from-gray-50 to-gray-200 flex items-center justify-center">
+        <div className="animate-pulse flex flex-col items-center">
+          <div className="w-32 h-8 bg-gray-300 rounded mb-4" />
+          <div className="w-64 h-6 bg-gray-200 rounded mb-2" />
+          <div className="w-64 h-6 bg-gray-200 rounded mb-2" />
+          <div className="w-64 h-6 bg-gray-200 rounded mb-2" />
+        </div>
+      </main>
+    );
+  }
 
   const handleChapterClick = (chapterId: string, isUnlocked: boolean) => {
     if (isUnlocked) return;
@@ -114,35 +136,37 @@ export default function LanguagePage({ params }: { params: Promise<{ language: s
           })}
         </ul>
         {/* Pagination controls */}
-        <div className="flex justify-center gap-2 mt-8">
-          <button
-            className="px-4 py-2 rounded bg-gray-300 text-gray-700 font-semibold disabled:opacity-50"
-            onClick={() => setPage(page - 1)}
-            disabled={page === 1}
-          >
-            Previous
-          </button>
-          {Array.from({ length: totalPages }, (_, i) => (
+        {totalPages > 1 && (
+          <div className="flex justify-center gap-2 mt-8">
             <button
-              key={i + 1}
-              className={`px-4 py-2 rounded font-semibold ${
-                page === i + 1
-                  ? "bg-blue-600 text-white"
-                  : "bg-gray-200 text-gray-700"
-              }`}
-              onClick={() => setPage(i + 1)}
+              className="px-4 py-2 rounded bg-gray-300 text-gray-700 font-semibold disabled:opacity-50"
+              onClick={() => setPage(page - 1)}
+              disabled={page === 1}
             >
-              {i + 1}
+              Previous
             </button>
-          ))}
-          <button
-            className="px-4 py-2 rounded bg-gray-300 text-gray-700 font-semibold disabled:opacity-50"
-            onClick={() => setPage(page + 1)}
-            disabled={page === totalPages}
-          >
-            Next
-          </button>
-        </div>
+            {Array.from({ length: totalPages }, (_, i) => (
+              <button
+                key={i + 1}
+                className={`px-4 py-2 rounded font-semibold ${
+                  page === i + 1
+                    ? "bg-blue-600 text-white"
+                    : "bg-gray-200 text-gray-700"
+                }`}
+                onClick={() => setPage(i + 1)}
+              >
+                {i + 1}
+              </button>
+            ))}
+            <button
+              className="px-4 py-2 rounded bg-gray-300 text-gray-700 font-semibold disabled:opacity-50"
+              onClick={() => setPage(page + 1)}
+              disabled={page === totalPages}
+            >
+              Next
+            </button>
+          </div>
+        )}
         {/* Back to Home button under pagination */}
         <div className="mt-8 flex justify-center">
           <Link
