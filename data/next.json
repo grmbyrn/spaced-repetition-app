@@ -297,6 +297,462 @@
           "explanation": "Client components can use React hooks and handle user interactions."
         }
       ]
+    },
+    {
+      "chapterId": "nextjs-routing",
+      "title": "Routing",
+      "resourceUrl": "https://www.youtube.com/watch?v=9602Yzvd7ik&list=PLC3y8-rFHvwhIEc4I4YsRz5C7GOBnxSJY&index=5&pp=iAQB",
+      "gitHubNotes": "",
+      "questions": [
+        {
+          "id": "nextjs-routing-q01",
+          "questionText": "In Next.js, where must all route files be located?",
+          "options": [
+            "Inside the 'pages' folder",
+            "Inside the 'app' folder",
+            "Anywhere in the project",
+            "Inside the 'src' folder"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "Next.js requires all routes to be placed inside the 'app' folder within the source directory to map URLs correctly."
+        },
+        {
+          "id": "nextjs-routing-q02",
+          "questionText": "What must each route file be named in Next.js to be recognized as a page?",
+          "options": [
+            "index.js or index.tsx",
+            "route.js or route.tsx",
+            "page.js or page.tsx",
+            "app.js or app.tsx"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "Route files must be named 'page.js' or 'page.tsx' depending on whether JavaScript or TypeScript is used to be recognized as pages."
+        },
+        {
+          "id": "nextjs-routing-q03",
+          "questionText": "How does Next.js map URL paths to files and folders in the app directory?",
+          "options": [
+            "Each file inside the app folder becomes a route",
+            "Each folder represents a segment of the URL path",
+            "Routes are configured manually in a routing file",
+            "Only files in the root app folder are routes"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "Each folder inside the 'app' directory represents a segment of the URL path, allowing nested routes."
+        },
+        {
+          "id": "nextjs-routing-q04",
+          "questionText": "What URL does a 'page.tsx' file inside the root 'app' folder map to?",
+          "options": [
+            "/home",
+            "/index",
+            "/",
+            "/root"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "A 'page.tsx' file in the root 'app' folder automatically maps to the root URL '/' in Next.js."
+        },
+        {
+          "id": "nextjs-routing-q05",
+          "questionText": "What happens in Next.js if a user visits a URL that does not match any route file?",
+          "options": [
+            "The app crashes",
+            "The server returns a 404 Not Found page automatically",
+            "It redirects to the homepage",
+            "You must manually create a 404 page"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "Next.js automatically returns a 404 Not Found response for URLs that don’t match any route without additional code."
+        },
+        {
+          "id": "nextjs-routing-q06",
+          "questionText": "Which of the following best describes Next.js’s approach to routing?",
+          "options": [
+            "It requires manual route configuration",
+            "It uses a file system-based routing with conventions",
+            "Routes are configured using JSON files",
+            "It uses third-party routing libraries"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "Next.js favors convention over configuration by mapping file and folder structure in the 'app' folder directly to routes."
+        }
+      ]
+    },
+    {
+      "chapterId": "nextjs-nested-routes",
+      "title": "Nested Routes",
+      "resourceUrl": "https://www.youtube.com/watch?v=H7JjKjkC33c&list=PLC3y8-rFHvwhIEc4I4YsRz5C7GOBnxSJY&index=6&pp=iAQB",
+      "gitHubNotes": "",
+      "questions": [
+        {
+          "id": "nextjs-nested-routes-q01",
+          "questionText": "Where should the 'blog' route folder be created in a Next.js project using the app router?",
+          "options": [
+            "Inside the 'pages' folder",
+            "Inside the 'app' folder",
+            "Anywhere in the root directory",
+            "Inside the 'public' folder"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "All route folders, including 'blog', must be created inside the 'app' folder to be recognized as routes."
+        },
+        {
+          "id": "nextjs-nested-routes-q02",
+          "questionText": "What does the 'page.tsx' file inside the 'blog' folder represent in the URL structure?",
+          "options": [
+            "The root URL '/'",
+            "The '/blog' route",
+            "The '/blog/page' route",
+            "It is ignored by Next.js"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "The 'page.tsx' file inside the 'blog' folder corresponds directly to the '/blog' URL route."
+        },
+        {
+          "id": "nextjs-nested-routes-q03",
+          "questionText": "How do you create nested routes such as '/blog/first' and '/blog/second' in Next.js app router?",
+          "options": [
+            "By creating files named 'first.tsx' and 'second.tsx' inside the blog folder",
+            "By creating folders named 'first' and 'second' inside the blog folder, each containing a 'page.tsx' file",
+            "By adding query parameters to the blog route",
+            "By configuring routes manually in a config file"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "Nested routes are created by adding folders inside the parent route folder; each folder must have its own 'page.tsx' to define that route."
+        },
+        {
+          "id": "nextjs-nested-routes-q04",
+          "questionText": "What will a 'page.tsx' file inside the folder 'blog/first' render when you visit '/blog/first'?",
+          "options": [
+            "The root page",
+            "The page for '/blog/first'",
+            "An error page",
+            "The page for '/blog'"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "A 'page.tsx' inside 'blog/first' corresponds exactly to the nested route '/blog/first' and renders its content."
+        },
+        {
+          "id": "nextjs-nested-routes-q05",
+          "questionText": "What is the key benefit of Next.js’s folder-based routing system for nested routes?",
+          "options": [
+            "You must write complex routing code",
+            "The URLs automatically mirror your folder structure",
+            "You need to configure routes in a separate file",
+            "Routes only work at the root level"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "Next.js automatically maps nested folders inside 'app' to URL paths, making nested routing simple and intuitive."
+        }
+      ]
+    },
+    {
+      "id": "nextjs-dynamic-routes",
+      "title": "Dynamic Routes",
+      "resourceUrl": "https://www.youtube.com/watch?v=k9g6aVLH3p4&list=PLC3y8-rFHvwhIEc4I4YsRz5C7GOBnxSJY&index=7&pp=iAQB", 
+      "gitHubNotes": "",
+      "questions": [
+        {
+          "id": "nextjs-dynamic-routes-q01",
+          "questionText": "What problem arises if you create a separate folder for each product in a product listing route?",
+          "options": [
+            "The app will not compile",
+            "It becomes hard to maintain as the number of products grows",
+            "Next.js does not allow folders for products",
+            "Each product page cannot have unique content"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "Creating folders for each product is impractical for large numbers of products, making maintenance difficult."
+        },
+        {
+          "id": "nextjs-dynamic-routes-q02",
+          "questionText": "How does Next.js handle dynamic route segments in the app router?",
+          "options": [
+            "Folders named with square brackets, e.g. [productId], create dynamic routes",
+            "Using query strings only",
+            "By manually adding routes in a config file",
+            "Dynamic routes are not supported"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "Folders named with square brackets indicate dynamic segments, allowing Next.js to handle routes like /products/1 or /products/abc."
+        },
+        {
+          "id": "nextjs-dynamic-routes-q03",
+          "questionText": "What prop does a Next.js page component receive to access dynamic route parameters?",
+          "options": [
+            "props",
+            "params",
+            "routeParams",
+            "query"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "The page component receives a 'params' prop containing the dynamic route parameters as key-value pairs."
+        },
+        {
+          "id": "nextjs-dynamic-routes-q04",
+          "questionText": "In a server component using async/await, how do you access the dynamic segment 'productId' from the params prop?",
+          "options": [
+            "const productId = await params.productId;",
+            "const productId = params.productId;",
+            "const productId = await props.productId;",
+            "const productId = params['productId']();"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "Because 'params' is a promise in server components, you await it to access 'productId'."
+        },
+        {
+          "id": "nextjs-dynamic-routes-q05",
+          "questionText": "What types of values can the dynamic segment 'productId' represent in Next.js dynamic routes?",
+          "options": [
+            "Only numeric IDs",
+            "Only strings",
+            "Both strings and numbers",
+            "Only UUIDs"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "Dynamic segments can represent any string, including numbers or text like 'iPhone', making routes flexible."
+        },
+        {
+          "id": "nextjs-dynamic-routes-q06",
+          "questionText": "Which folder structure corresponds to the dynamic route '/products/[productId]' in Next.js?",
+          "options": [
+            "'app/products/page.tsx' only",
+            "'app/products/[productId]/page.tsx'",
+            "'app/[productId]/products/page.tsx'",
+            "'app/products/[productId].tsx'"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "The dynamic route uses a folder named with square brackets inside 'products' containing a 'page.tsx' file."
+        }
+      ]
+    },
+    {
+      "id": "nextjs-nested-dynamic-routes",
+      "title": "Nested Dynamic Routes",
+      "resourceUrl": "https://www.youtube.com/watch?v=edrJf0GKfAI&list=PLC3y8-rFHvwhIEc4I4YsRz5C7GOBnxSJY&index=8&pp=iAQB0gcJCa0JAYcqIYzv",
+      "gitHubNotes": "",
+      "questions": [
+        {
+          "id": "nextjs-nested-dynamic-routes-q01",
+          "questionText": "How do you structure folders in Next.js to handle nested dynamic routes like /products/[productId]/reviews/[reviewId]?",
+          "options": [
+            "Create a folder named [productId], inside it a folder named reviews, and inside that another folder named [reviewId] each with a page.tsx",
+            "Create a single folder with the full path as its name",
+            "Create a folder named reviews inside app and put all dynamic routes there",
+            "Create a folder named [reviewId] inside products folder"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "Nested dynamic routes require nested folders: [productId] folder, then reviews folder inside it, then [reviewId] folder with page.tsx."
+        },
+        {
+          "id": "nextjs-nested-dynamic-routes-q02",
+          "questionText": "In a nested dynamic route component, how do you access both productId and reviewId parameters?",
+          "options": [
+            "From the props object",
+            "By destructuring and awaiting the params prop which contains both productId and reviewId",
+            "By accessing global state",
+            "By parsing the URL manually"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "The component receives params as a promise resolving to an object containing both dynamic parameters, which you can await and destructure."
+        },
+        {
+          "id": "nextjs-nested-dynamic-routes-q03",
+          "questionText": "What URL path corresponds to the nested dynamic route /products/1/reviews/1?",
+          "options": [
+            "/products/[productId]/[reviewId]",
+            "/products/1/reviews/1",
+            "/products/reviews/1/1",
+            "/reviews/1/products/1"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "The actual URL with specific IDs replaces the dynamic segments in the nested folder structure."
+        },
+        {
+          "id": "nextjs-nested-dynamic-routes-q04",
+          "questionText": "What is the main advantage of using nested dynamic folders in Next.js routing?",
+          "options": [
+            "Allows handling multiple dynamic segments cleanly and logically",
+            "Reduces the number of files needed",
+            "Improves app startup time",
+            "Prevents dynamic routing"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "Nested dynamic folders enable clean, maintainable handling of multiple dynamic segments in URLs."
+        },
+        {
+          "id": "nextjs-nested-dynamic-routes-q05",
+          "questionText": "Which of the following is a correct way to visualize the folder structure for /products/[productId]/reviews/[reviewId]?",
+          "options": [
+            "app/products/[productId]/reviews/[reviewId]/page.tsx",
+            "app/products/reviews/[productId]/[reviewId]/page.tsx",
+            "app/products/[reviewId]/reviews/[productId]/page.tsx",
+            "app/reviews/[productId]/[reviewId]/page.tsx"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "The folder structure mirrors the URL segments with nested folders and dynamic segments in square brackets."
+        }
+      ]
+    },
+    {
+      "id": "nextjs-catchall-segments",
+      "title": "Catchall Segments",
+      "resourceUrl": "https://www.youtube.com/watch?v=d46hLIg1B3Q&list=PLC3y8-rFHvwhIEc4I4YsRz5C7GOBnxSJY&index=9&pp=iAQB",
+      "gitHubNotes": "",
+      "questions": [
+        {
+          "id": "nextjs-catchall-segments-q01",
+          "questionText": "What problem do catchall segments solve in Next.js routing?",
+          "options": [
+            "Managing many nested routes with a single page file",
+            "Improving server response times",
+            "Reducing client-side JavaScript bundle size",
+            "Handling static routes only"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "Catchall segments let you capture multiple nested URL segments with one dynamic route, reducing the need for many files."
+        },
+        {
+          "id": "nextjs-catchall-segments-q02",
+          "questionText": "How do you define a catchall dynamic route folder in Next.js?",
+          "options": [
+            "By naming the folder with square brackets and three dots, like [...slug]",
+            "By using curly braces around the folder name",
+            "By creating a file named catchall.js",
+            "By using a double underscore prefix, like __slug"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "Catchall segments use the special syntax [...slug] where the three dots indicate multiple dynamic segments."
+        },
+        {
+          "id": "nextjs-catchall-segments-q03",
+          "questionText": "What type of data does the params.slug represent in a catchall route?",
+          "options": [
+            "A single string representing the full path",
+            "An array of strings representing each segment of the URL",
+            "A boolean indicating if the route is active",
+            "An object with key-value pairs of query parameters"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "In catchall routes, params.slug is an array of strings, each representing a segment in the URL path."
+        },
+        {
+          "id": "nextjs-catchall-segments-q04",
+          "questionText": "What happens if you want the catchall segment to also match the base path (e.g., /docs) without any segments?",
+          "options": [
+            "You wrap the folder name in an extra pair of square brackets like [[...slug]]",
+            "You add an index.js file inside the catchall folder",
+            "You create a separate route for the base path",
+            "You rename the folder to base"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "Optional catchall segments ([[...slug]]) allow matching both the base path and any nested paths."
+        },
+        {
+          "id": "nextjs-catchall-segments-q05",
+          "questionText": "When should you use a simple page.tsx in the docs folder instead of an optional catchall route?",
+          "options": [
+            "When the page UI is the same regardless of the URL segments",
+            "When the page UI depends on URL segments",
+            "When you want to handle only static routes",
+            "When you do not want to use dynamic routing"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "Use a simple page.tsx when the UI does not change with the URL path segments; otherwise, use catchall routes."
+        },
+        {
+          "id": "nextjs-catchall-segments-q06",
+          "questionText": "Why is using catchall segments advantageous for documentation sites?",
+          "options": [
+            "It handles deeply nested documentation paths with fewer files",
+            "It automatically generates documentation content",
+            "It improves SEO by hiding URLs",
+            "It prevents users from accessing undefined routes"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "Catchall routes let you cover many nested paths like feature/concept/example in one dynamic route file."
+        }
+      ]
+    },
+    {
+      "id": "nextjs-not-found-page",
+      "title": "Not Found Page",
+      "resourceUrl": "https://www.youtube.com/watch?v=GCipVDqBD3k&list=PLC3y8-rFHvwhIEc4I4YsRz5C7GOBnxSJY&index=10&pp=iAQB",
+      "gitHubNotes": "",
+      "questions": [
+        {
+          "id": "nextjs-not-found-page-q01",
+          "questionText": "What is the file name convention to create a custom 404 page in Next.js app router?",
+          "options": [
+            "404.tsx",
+            "notfound.tsx",
+            "not-found.tsx",
+            "error.tsx"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "Next.js requires the custom 404 page to be named exactly 'not-found.tsx' (or .js) to replace the default 404."
+        },
+        {
+          "id": "nextjs-not-found-page-q02",
+          "questionText": "Where should you place the not-found.tsx file to customize the global 404 page?",
+          "options": [
+            "Inside the 'pages' folder",
+            "Inside the 'app' folder",
+            "Inside a '404' folder",
+            "Inside the 'components' folder"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "The 'not-found.tsx' file must be inside the 'app' folder to customize the global 404 page using the app router."
+        },
+        {
+          "id": "nextjs-not-found-page-q03",
+          "questionText": "How can you programmatically trigger the 404 page within a Next.js component?",
+          "options": [
+            "By throwing an error",
+            "By importing and calling the 'notFound' function from 'next/navigation'",
+            "By redirecting to a 404 URL",
+            "By setting a state variable"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "Next.js provides a 'notFound' function from 'next/navigation' that you can call to programmatically show the 404 page."
+        },
+        {
+          "id": "nextjs-not-found-page-q04",
+          "questionText": "What happens if you create a 'not-found.tsx' file inside a nested route folder like 'reviewId'?",
+          "options": [
+            "It overrides the global 404 page everywhere",
+            "It creates a more specific 404 page for that route segment",
+            "It is ignored by Next.js",
+            "It causes a build error"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "Next.js uses the most specific 'not-found.tsx' page for a route if it exists, allowing custom 404 pages per route segment."
+        },
+        {
+          "id": "nextjs-not-found-page-q05",
+          "questionText": "Why must you add the 'use client' directive at the top of a custom 404 component that uses 'usePathname' hook?",
+          "options": [
+            "Because hooks can only be used in client components",
+            "Because server components don't support JSX",
+            "Because 'usePathname' is a deprecated hook",
+            "Because it enables static site generation"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "React hooks like 'usePathname' only work in client components, so you need 'use client' to mark the component accordingly."
+        },
+        {
+          "id": "nextjs-not-found-page-q06",
+          "questionText": "What limitation does the 'not-found.tsx' component have regarding props?",
+          "options": [
+            "It cannot accept any props",
+            "It can only accept string props",
+            "It must accept a 'message' prop",
+            "It requires route parameters as props"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "The 'not-found.tsx' component does not accept props; dynamic behavior should be handled using hooks like 'usePathname'."
+        }
+      ]
     }
   ]
 }
