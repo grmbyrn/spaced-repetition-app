@@ -753,6 +753,454 @@
           "explanation": "The 'not-found.tsx' component does not accept props; dynamic behavior should be handled using hooks like 'usePathname'."
         }
       ]
+    },
+    {
+      "id": "nextjs-file-collocation",
+      "title": "File Collocation",
+      "resourceUrl": "https://www.youtube.com/watch?v=fpOinVG85Pk&list=PLC3y8-rFHvwhIEc4I4YsRz5C7GOBnxSJY&index=11&pp=iAQB",
+      "gitHubNotes": "",
+      "questions": [
+        {
+          "id": "nextjs-file-collocation-q01",
+          "questionText": "In Next.js App Router, when does a folder in the app directory become a publicly accessible route?",
+          "options": [
+            "When the folder is created",
+            "When it contains any .tsx file",
+            "When it contains a `page.tsx` or `page.js` file",
+            "When it's included in the navigation menu"
+          ],
+          "correctIndex": 2,
+          "explanation": "A folder becomes a publicly accessible route only when a `page.tsx` or `page.js` file is added to it."
+        },
+        {
+          "id": "nextjs-file-collocation-q02",
+          "questionText": "What is the purpose of the `page.tsx` file inside a route folder?",
+          "options": [
+            "It defines metadata for SEO",
+            "It exports helper functions for the app",
+            "It determines what is rendered at that route URL",
+            "It stores configuration settings"
+          ],
+          "correctIndex": 2,
+          "explanation": "The `page.tsx` file must export a default React component that renders the content for the route."
+        },
+        {
+          "id": "nextjs-file-collocation-q03",
+          "questionText": "What happens if you forget to add a default export in the `page.tsx` file?",
+          "options": [
+            "The app will silently ignore the file",
+            "The browser will show a blank page",
+            "Next.js will throw an error saying no default export found",
+            "The file will be skipped during the build"
+          ],
+          "correctIndex": 2,
+          "explanation": "Next.js requires a default export in `page.tsx`, otherwise it throws an error indicating that no React component was found."
+        },
+        {
+          "id": "nextjs-file-collocation-q04",
+          "questionText": "What is one benefit of collocating components inside a route folder?",
+          "options": [
+            "They automatically become routes",
+            "They help organize logic close to where it’s used",
+            "They are preloaded automatically",
+            "They get globally registered"
+          ],
+          "correctIndex": 1,
+          "explanation": "Collocating components helps with organization by keeping related files close to the route they belong to."
+        },
+        {
+          "id": "nextjs-file-collocation-q05",
+          "questionText": "Can you organize your UI components outside the app directory in a Next.js project?",
+          "options": [
+            "No, all files must be in the app directory",
+            "Yes, but only utility functions can be outside",
+            "Yes, components and logic can be kept outside, such as in a `src/components` folder",
+            "Yes, but they will not be included in the build"
+          ],
+          "correctIndex": 2,
+          "explanation": "It's perfectly valid to keep components and logic in separate folders like `src/components` for better project structure."
+        },
+        {
+          "id": "nextjs-file-collocation-q06",
+          "questionText": "What happens if you add a `.tsx` file (e.g., `lineChart.tsx`) to a route folder without a `page.tsx` file?",
+          "options": [
+            "The route becomes accessible but shows a blank page",
+            "It results in a 404 error when accessing the route",
+            "The `.tsx` file is automatically rendered",
+            "It throws a build-time error"
+          ],
+          "correctIndex": 1,
+          "explanation": "Without a `page.tsx` file in the route folder, Next.js will return a 404 because there's no default page component for the route."
+        }
+      ]
+    },
+    {
+      "id": "private-folders-nextjs",
+      "title": "Private Folders",
+      "resourceUrl": "https://www.youtube.com/watch?v=nJjs3wrji5s&list=PLC3y8-rFHvwhIEc4I4YsRz5C7GOBnxSJY&index=12&pp=iAQB",
+      "gitHubNotes": "",
+      "questions": [
+        {
+          "id": "private-folders-nextjs-q01",
+          "questionText": "What is the purpose of a private folder in a Next.js project?",
+          "options": [
+            "To create admin-only routes",
+            "To group global stylesheets",
+            "To store internal files that should be excluded from routing",
+            "To cache API responses"
+          ],
+          "correctIndex": 2,
+          "explanation": "Private folders are used to keep internal files that are not meant to be routed by Next.js."
+        },
+        {
+          "id": "private-folders-nextjs-q02",
+          "questionText": "How do you mark a folder as private in a Next.js app?",
+          "options": [
+            "Prefix the folder name with a dot (e.g., `.lib`)",
+            "Add a comment in a config file",
+            "Prefix the folder name with an underscore (e.g., `_lib`)",
+            "Use a `private: true` flag in the folder's metadata"
+          ],
+          "correctIndex": 2,
+          "explanation": "Next.js treats any folder starting with an underscore (e.g., `_lib`) as a private folder and excludes it from the routing system."
+        },
+        {
+          "id": "private-folders-nextjs-q03",
+          "questionText": "What happens if you include a `page.tsx` file inside a private folder?",
+          "options": [
+            "It becomes publicly accessible",
+            "It throws a build error",
+            "It is ignored by the router and not accessible via URL",
+            "It causes the app to crash"
+          ],
+          "correctIndex": 2,
+          "explanation": "Even if a `page.tsx` file is placed in a private folder, Next.js will not expose it as a route because the folder is excluded from routing."
+        },
+        {
+          "id": "private-folders-nextjs-q04",
+          "questionText": "What is one of the primary benefits of using private folders?",
+          "options": [
+            "They improve browser caching",
+            "They reduce bundle size by default",
+            "They help avoid accidental route exposure and maintain clean organization",
+            "They allow client-side routing only"
+          ],
+          "correctIndex": 2,
+          "explanation": "Private folders help developers organize internal logic and prevent routing conflicts or accidental exposure."
+        },
+        {
+          "id": "private-folders-nextjs-q05",
+          "questionText": "What is the correct URL-encoded version of an underscore (`_`) character?",
+          "options": [
+            "%40",
+            "%3F",
+            "%5F",
+            "%20"
+          ],
+          "correctIndex": 2,
+          "explanation": "`%5F` is the URL-encoded representation of an underscore. This can be used in URLs if you actually want the underscore to appear."
+        },
+        {
+          "id": "private-folders-nextjs-q06",
+          "questionText": "Which of the following is NOT a benefit of private folders in Next.js?",
+          "options": [
+            "Avoiding future naming conflicts",
+            "Keeping UI logic separate from routing logic",
+            "Making internal files publicly available",
+            "Grouping related internal files for clarity"
+          ],
+          "correctIndex": 2,
+          "explanation": "Private folders are specifically used to prevent internal files from becoming publicly available routes."
+        },
+        {
+          "id": "private-folders-nextjs-q07",
+          "questionText": "Is it mandatory to use private folders for organizing internal logic in Next.js?",
+          "options": [
+            "Yes, it's the only allowed method",
+            "No, it's optional and based on developer preference",
+            "Yes, if using the app router",
+            "No, but only if using JavaScript"
+          ],
+          "correctIndex": 1,
+          "explanation": "Using private folders is optional. Developers may choose other organizational patterns, such as placing logic outside the `app` folder."
+        }
+      ]
+    },
+    {
+      "id": "route-groups-nextjs",
+      "title": "Route Groups",
+      "resourceUrl": "https://www.youtube.com/watch?v=auXXk38rGgk&list=PLC3y8-rFHvwhIEc4I4YsRz5C7GOBnxSJY&index=13&pp=iAQB",
+      "gitHubNotes": "",
+      "questions": [
+        {
+          "id": "route-groups-nextjs-q01",
+          "questionText": "What is the main purpose of route groups in Next.js?",
+          "options": [
+            "To add authentication to a group of routes",
+            "To improve SEO for grouped routes",
+            "To organize files without affecting the URL structure",
+            "To reduce server load"
+          ],
+          "correctIndex": 2,
+          "explanation": "Route groups let you group related routes for better organization while keeping the URL paths unchanged."
+        },
+        {
+          "id": "route-groups-nextjs-q02",
+          "questionText": "How do you define a route group in the Next.js app directory?",
+          "options": [
+            "Prefix the folder name with an underscore",
+            "Use a `.group` extension for the folder",
+            "Wrap the folder name in parentheses",
+            "Create a `group.config.js` file in the folder"
+          ],
+          "correctIndex": 2,
+          "explanation": "Next.js treats any folder wrapped in parentheses (e.g., `(auth)`) as a route group, which is ignored in the final URL structure."
+        },
+        {
+          "id": "route-groups-nextjs-q03",
+          "questionText": "What happens if you group routes under a regular folder like `auth` (without parentheses)?",
+          "options": [
+            "Next.js throws a routing error",
+            "The folder name becomes part of the URL path",
+            "The routes are hidden from the public",
+            "The routes are not compiled"
+          ],
+          "correctIndex": 1,
+          "explanation": "Without parentheses, Next.js includes the folder name (e.g., `auth`) in the URL path, resulting in URLs like `/auth/login`."
+        },
+        {
+          "id": "route-groups-nextjs-q04",
+          "questionText": "After moving `register`, `login`, and `forgot-password` into a route group folder `(auth)`, what will be the URL for the login route?",
+          "options": [
+            "/auth/login",
+            "/(auth)/login",
+            "/login",
+            "/user/login"
+          ],
+          "correctIndex": 2,
+          "explanation": "Because `(auth)` is a route group, it does not appear in the URL. The login page is accessible at `/login`."
+        },
+        {
+          "id": "route-groups-nextjs-q05",
+          "questionText": "What issue can occur after moving routes into a non-group folder and how is it fixed?",
+          "options": [
+            "Routes are cached; fix with `npm cache clean`",
+            "Imports break; fix with a `layout.tsx` file",
+            "Routes change path; fix by renaming the folder with parentheses",
+            "Pages won’t render; fix by using SSR"
+          ],
+          "correctIndex": 2,
+          "explanation": "When routes are nested under a regular folder, their URL path changes. Wrapping the folder name in parentheses prevents this."
+        },
+        {
+          "id": "route-groups-nextjs-q06",
+          "questionText": "Which of the following is true about nesting route groups?",
+          "options": [
+            "It is not supported in Next.js",
+            "It will always expose the group names in the URL",
+            "You can nest route groups within each other for deeper organization",
+            "Only one route group is allowed per project"
+          ],
+          "correctIndex": 2,
+          "explanation": "You can nest multiple route groups to organize routes further, and none of the group names will appear in the URL."
+        },
+        {
+          "id": "route-groups-nextjs-q07",
+          "questionText": "What is an additional benefit of route groups besides organization?",
+          "options": [
+            "They automatically lazy-load routes",
+            "They allow sharing a layout between routes without affecting the URL",
+            "They prefetch routes by default",
+            "They optimize images inside the folder"
+          ],
+          "correctIndex": 1,
+          "explanation": "Route groups enable shared layouts across grouped routes while preserving a clean URL structure."
+        }
+      ]
+    },
+    {
+      "id": "layouts-nextjs",
+      "title": "Layouts",
+      "resourceUrl": "https://www.youtube.com/watch?v=NK-8a8EzWrU&list=PLC3y8-rFHvwhIEc4I4YsRz5C7GOBnxSJY&index=14&pp=iAQB",
+      "gitHubNotes": "",
+      "questions": [
+        {
+          "id": "layouts-nextjs-q01",
+          "questionText": "What is the primary purpose of a layout in Next.js?",
+          "options": [
+            "To create dynamic routes",
+            "To add middleware logic to pages",
+            "To share common UI elements like headers and footers across pages",
+            "To define global CSS"
+          ],
+          "correctIndex": 2,
+          "explanation": "Layouts allow you to reuse UI structure (like headers and footers) across multiple pages, ensuring consistency in your app."
+        },
+        {
+          "id": "layouts-nextjs-q02",
+          "questionText": "What is the name of the required layout file at the root of a Next.js app?",
+          "options": [
+            "root.tsx",
+            "layout.tsx",
+            "app.tsx",
+            "default.tsx"
+          ],
+          "correctIndex": 1,
+          "explanation": "`layout.tsx` is the required root layout file in the app directory, and Next.js will automatically recreate it if deleted."
+        },
+        {
+          "id": "layouts-nextjs-q03",
+          "questionText": "What happens if you delete the `layout.tsx` file from the app folder?",
+          "options": [
+            "Next.js shows an error and stops the server",
+            "The app loses all its styles",
+            "Next.js automatically regenerates the file",
+            "All pages become inaccessible"
+          ],
+          "correctIndex": 2,
+          "explanation": "Next.js automatically recreates the root `layout.tsx` file because it's required for any app to work."
+        },
+        {
+          "id": "layouts-nextjs-q04",
+          "questionText": "Which prop must every layout component in Next.js include?",
+          "options": [
+            "page",
+            "route",
+            "children",
+            "content"
+          ],
+          "correctIndex": 2,
+          "explanation": "The `children` prop is essential in layout components because Next.js uses it to inject the page-specific content."
+        },
+        {
+          "id": "layouts-nextjs-q05",
+          "questionText": "In the root layout, where does the content from `page.tsx` files appear?",
+          "options": [
+            "Outside the HTML tag",
+            "Inside the header tag",
+            "Within the `children` prop",
+            "In a separate iframe"
+          ],
+          "correctIndex": 2,
+          "explanation": "Page content is rendered in place of the `children` prop within the layout."
+        },
+        {
+          "id": "layouts-nextjs-q06",
+          "questionText": "Which of the following elements would typically go inside a layout file?",
+          "options": [
+            "Route handlers",
+            "API endpoints",
+            "Header and footer components",
+            "Redux store setup"
+          ],
+          "correctIndex": 2,
+          "explanation": "Header and footer elements are common UI components that are shared across pages and fit naturally in a layout."
+        },
+        {
+          "id": "layouts-nextjs-q07",
+          "questionText": "How does the layout file affect navigation between routes like `/about` or `/profile`?",
+          "options": [
+            "It reloads the entire page",
+            "It hides the header and footer on route change",
+            "It ensures the layout (e.g., header/footer) remains constant across these routes",
+            "It changes the URL structure"
+          ],
+          "correctIndex": 2,
+          "explanation": "The root layout remains in place and only the children content changes, providing a consistent structure during navigation."
+        }
+      ]
+    },
+    {
+      "id": "nested-layouts-nextjs",
+      "title": "Nested Layouts",
+      "resourceUrl": "https://example.com/nested-layouts-video",
+      "gitHubNotes": "https://github.com/example/nextjs-nested-layouts-notes",
+      "questions": [
+        {
+          "id": "nested-layouts-nextjs-q01",
+          "questionText": "What is a nested layout in Next.js?",
+          "options": [
+            "A layout that overrides the root layout",
+            "A layout used for dynamic routing only",
+            "A layout placed inside a subfolder to apply to specific pages",
+            "A layout defined in the public folder"
+          ],
+          "correctIndex": 2,
+          "explanation": "Nested layouts are placed in specific folders (like `product/[id]/layout.tsx`) to apply layout logic to only that part of the app."
+        },
+        {
+          "id": "nested-layouts-nextjs-q02",
+          "questionText": "In Next.js, what does the `children` prop represent in a nested layout component?",
+          "options": [
+            "The root layout component",
+            "The dynamic route parameter",
+            "The content of the specific page inside that folder",
+            "The name of the route"
+          ],
+          "correctIndex": 2,
+          "explanation": "In nested layouts, the `children` prop represents the content from the `page.tsx` file within the same folder."
+        },
+        {
+          "id": "nested-layouts-nextjs-q03",
+          "questionText": "Which of the following best describes how Next.js renders nested layouts?",
+          "options": [
+            "Only the nested layout is rendered, replacing the root layout",
+            "The nested layout wraps the root layout",
+            "The root layout renders first, then the nested layout, then the page content",
+            "The layout is rendered only on the initial load"
+          ],
+          "correctIndex": 2,
+          "explanation": "Next.js renders layouts from the root down: first the root layout, then any nested layout, and finally the page content."
+        },
+        {
+          "id": "nested-layouts-nextjs-q04",
+          "questionText": "What visual change occurs when you navigate to `/products/1` if a nested layout is added in `products/[id]/layout.tsx`?",
+          "options": [
+            "Only the footer is shown",
+            "The entire layout changes, removing the root layout",
+            "A section like 'Featured Products' appears between header and footer",
+            "The page content fails to render"
+          ],
+          "correctIndex": 2,
+          "explanation": "The nested layout can add extra sections such as 'Featured Products' while still being wrapped by the root layout's header and footer."
+        },
+        {
+          "id": "nested-layouts-nextjs-q05",
+          "questionText": "What is the correct way to create a nested layout in Next.js?",
+          "options": [
+            "Add a layout.tsx file inside the specific folder",
+            "Use a special layout wrapper in `page.tsx`",
+            "Define the layout in `app/layout.tsx` using route conditions",
+            "Use the `_app.js` file to wrap the page"
+          ],
+          "correctIndex": 0,
+          "explanation": "To create a nested layout, you place a `layout.tsx` file directly in the relevant subfolder."
+        },
+        {
+          "id": "nested-layouts-nextjs-q06",
+          "questionText": "Why would you want to use nested layouts in a Next.js project?",
+          "options": [
+            "To support SSR",
+            "To cache individual pages",
+            "To apply specialized UI for certain routes without affecting the whole app",
+            "To dynamically change the root layout"
+          ],
+          "correctIndex": 2,
+          "explanation": "Nested layouts help you create route-specific layouts, like a unique layout for product pages, without altering the rest of the app."
+        },
+        {
+          "id": "nested-layouts-nextjs-q07",
+          "questionText": "What part of the layout structure gets replaced when navigating between pages that use the same nested layout?",
+          "options": [
+            "The root layout header",
+            "The nested layout H2 tag",
+            "Only the page content inside `page.tsx`",
+            "Both layouts get re-rendered from scratch"
+          ],
+          "correctIndex": 2,
+          "explanation": "When moving between routes that share the same nested layout, only the content from the `page.tsx` file changes — the layout stays in place."
+        }
+      ]
     }
   ]
 }
